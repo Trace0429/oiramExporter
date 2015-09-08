@@ -1,0 +1,1 @@
+CGplusplusFunc.matAndObjOps 1 --选择没有材质的物体

@@ -1,0 +1,8 @@
+LIBRARY ogreComponent.dll
+EXPORTS
+	createSerializer
+	destroySerializer
+	createRenderSystem
+	destroyRenderSystem
+SECTIONS
+   .data READ WRITE

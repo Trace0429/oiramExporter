@@ -1,0 +1,2 @@
+
+CGplusplusFunc.cleanMedit standard 

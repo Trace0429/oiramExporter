@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="..\dependencies\strutil.cpp">
+      <Filter>dependencies</Filter>
+    </ClCompile>
+    <ClCompile Include="dllmain.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ViewExtended.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MaxScriptExtended.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Exporter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Component.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OptionDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LogMessageDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\dependencies\requisites.h">
+      <Filter>dependencies</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\strutil.h">
+      <Filter>dependencies</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\type.h">
+      <Filter>dependencies</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\rapidxml.hpp">
+      <Filter>dependencies</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\rapidxml_print.hpp">
+      <Filter>dependencies</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\res\resource.h">
+      <Filter>Resource Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ViewExtended.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\rendersystem.h">
+      <Filter>dependencies</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\serializer.h">
+      <Filter>dependencies</Filter>
+    </ClInclude>
+    <ClInclude Include="MaxScriptExtended.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Exporter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Component.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="OptionDialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LogMessageDialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="dependencies">
+      <UniqueIdentifier>{d03ce2dd-63ee-4481-a5df-29366d501b4d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{80c17587-fccf-47ef-bef6-34d005f514e1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{100f76a9-68c7-4726-8f93-c59445fff0c6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{a8dbea86-dc1e-41cb-9b29-050b920f85fb}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="..\dependencies\res\oiramExporter.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="oiramExporter.def">
+      <Filter>Resource Files</Filter>
+    </None>
+  </ItemGroup>
+</Project>

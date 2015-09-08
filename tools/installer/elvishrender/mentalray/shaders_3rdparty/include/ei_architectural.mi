@@ -1,0 +1,400 @@
+ ##########################################################################
+ # Copyright (C) 2011 Elvic Liang<len3dev@gmail.com>
+ # All rights reserved.
+ # 
+ # This program is free software: you can redistribute it and/or modify
+ # it under the terms of the GNU General Public License as published by
+ # the Free Software Foundation, either version 3 of the License, or
+ # any later version.
+ #
+ # This program is distributed in the hope that it will be useful,
+ # but WITHOUT ANY WARRANTY; without even the implied warranty of
+ # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ # GNU General Public License for more details.
+ #
+ # You should have received a copy of the GNU General Public License
+ # along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ #########################################################################
+
+min version "3.5.2.6"
+max version "3.10.99"
+
+declare shader
+	"ei_architectural" (
+		color	"surface_color",
+		color	"diffuse_color",
+		scalar	"diffuse_weight",
+		color	"specular_color",
+		scalar	"specular_weight",
+		scalar	"roughness",
+		integer	"specular_mode",
+		scalar	"glossiness",
+		color	"reflection_color",
+		scalar	"reflection_weight",
+		color	"refraction_color",
+		scalar	"refraction_weight",
+		scalar	"refraction_glossiness",
+		scalar	"refraction_thickness",
+		color	"translucency_color",
+		scalar	"translucency_weight",
+		integer	"translucency_mode",
+		color	"sss_color",
+		color	"sss_scale_color",
+		scalar	"sss_scale_weight",
+		scalar	"sss_phase",
+		scalar	"anisotropy",
+		scalar	"rotation",
+		scalar	"ior",
+		boolean	"fresnel_by_ior",
+		scalar	"fresnel_0_degree_refl",
+		scalar	"fresnel_90_degree_refl",
+		scalar	"fresnel_curve",
+		boolean	"is_metal",
+		integer	"diffuse_samples",
+		integer	"reflection_samples",
+		integer	"refraction_samples",
+		integer	"sss_samples",
+		scalar	"cutoff_threshold",
+		shader	"bump_shader",
+		scalar	"bump_factor",
+		shader	"displace_shader",
+		scalar	"displace_factor"
+	)
+	version 4
+	apply material
+	gui "gui_ei_architectural" {
+        control "Global" "Global" (
+            "hidden"
+        )
+    }
+end declare
+
+declare phenomenon material
+	"ei_architectural_phen" (
+		struct "SurfaceParameters" {
+			color	"surface_color",
+			scalar	"anisotropy",
+			scalar	"rotation",
+			scalar	"ior",
+			boolean	"is_metal"
+		},
+		struct "DiffuseParameters" {
+			color	"diffuse_color",
+			scalar	"diffuse_weight",
+			scalar	"roughness"
+		},
+		struct "SpecularParameters" {
+			color	"specular_color",
+			scalar	"specular_weight",
+			integer	"specular_mode",
+			scalar	"glossiness"
+		},
+		struct "ReflectionParameters" {
+			color	"reflection_color",
+			scalar	"reflection_weight"
+		},
+		struct "RefractionParameters" {
+			color	"refraction_color",
+			scalar	"refraction_weight",
+			scalar	"refraction_glossiness",
+			scalar	"refraction_thickness"
+		},
+		struct "TranslucencyParameters" {
+			color	"translucency_color",
+			scalar	"translucency_weight",
+			integer	"translucency_mode",
+			color	"sss_color",
+			color	"sss_scale_color",
+			scalar	"sss_scale_weight",
+			scalar	"sss_phase"
+		},
+		struct "FresnelParameters" {
+			boolean	"fresnel_by_ior",
+			scalar	"fresnel_0_degree_refl",
+			scalar	"fresnel_90_degree_refl",
+			scalar	"fresnel_curve"
+		},
+		struct "SamplingParameters" {
+			integer	"diffuse_samples",
+			integer	"reflection_samples",
+			integer	"refraction_samples",
+			integer	"sss_samples",
+			scalar	"cutoff_threshold"
+		},
+		struct "BumpParameters" {
+			shader	"bump_shader",
+			scalar	"bump_factor"
+		},
+		struct "DisplaceParameters" {
+			shader	"displace_shader",
+			scalar	"displace_factor"
+		}
+	)
+	shader "arch"  "ei_architectural" (
+		"surface_color" = interface "SurfaceParameters.surface_color",
+		"diffuse_color" = interface "DiffuseParameters.diffuse_color",
+		"diffuse_weight" = interface "DiffuseParameters.diffuse_weight",
+		"specular_color" = interface "SpecularParameters.specular_color",
+		"specular_weight" = interface "SpecularParameters.specular_weight",
+		"roughness" = interface "DiffuseParameters.roughness",
+		"specular_mode" = interface "SpecularParameters.specular_mode",
+		"glossiness" = interface "SpecularParameters.glossiness",
+		"reflection_color" = interface "ReflectionParameters.reflection_color",
+		"reflection_weight" = interface "ReflectionParameters.reflection_weight",
+		"refraction_color" = interface "RefractionParameters.refraction_color",
+		"refraction_weight" = interface "RefractionParameters.refraction_weight",
+		"refraction_glossiness" = interface "RefractionParameters.refraction_glossiness",
+		"refraction_thickness" = interface "RefractionParameters.refraction_thickness",
+		"translucency_color" = interface "TranslucencyParameters.translucency_color",
+		"translucency_weight" = interface "TranslucencyParameters.translucency_weight",
+		"translucency_mode" = interface "TranslucencyParameters.translucency_mode",
+		"sss_color" = interface "TranslucencyParameters.sss_color",
+		"sss_scale_color" = interface "TranslucencyParameters.sss_scale_color",
+		"sss_scale_weight" = interface "TranslucencyParameters.sss_scale_weight",
+		"sss_phase" = interface "TranslucencyParameters.sss_phase",
+		"anisotropy" = interface "SurfaceParameters.anisotropy",
+		"rotation" = interface "SurfaceParameters.rotation",
+		"ior" = interface "SurfaceParameters.ior",
+		"fresnel_by_ior" = interface "FresnelParameters.fresnel_by_ior",
+		"fresnel_0_degree_refl" = interface "FresnelParameters.fresnel_0_degree_refl",
+		"fresnel_90_degree_refl" = interface "FresnelParameters.fresnel_90_degree_refl",
+		"fresnel_curve" = interface "FresnelParameters.fresnel_curve",
+		"is_metal" = interface "SurfaceParameters.is_metal",
+		"diffuse_samples" = interface "SamplingParameters.diffuse_samples",
+		"reflection_samples" = interface "SamplingParameters.reflection_samples",
+		"refraction_samples" = interface "SamplingParameters.refraction_samples",
+		"sss_samples" = interface "SamplingParameters.sss_samples",
+		"cutoff_threshold" = interface "SamplingParameters.cutoff_threshold",
+		"bump_shader" = interface "BumpParameters.bump_shader",
+		"bump_factor" = interface "BumpParameters.bump_factor",
+		"displace_shader" = interface "DisplaceParameters.displace_shader",
+		"displace_factor" = interface "DisplaceParameters.displace_factor"
+    )
+	material "mtl" 
+        = "arch"
+    end material
+    root material "mtl"
+    apply material
+	gui "gui_ei_architectural_phen" {
+		control "Global" "Global" (
+			"uiName" "elvish Standard",
+			"category" "Material"
+		)
+		control "SurfaceParameters" "struct" (
+			"uiName" "Surface Parameters",
+			"openstate" "true"
+		)
+		{
+			control "surface_color" "color" (
+				"uiName" "Surface Color",
+				"value" 1.0 1.0 1.0
+			)
+			control "anisotropy" "scalar" (
+				"uiName" "Anisotropy",
+				"value" 1.0
+			)
+			control "rotation" "scalar" (
+				"uiName" "Rotation",
+				"value" 0.0
+			)
+			control "ior" "scalar" (
+				"uiName" "Index Of Refraction",
+				"value" 1.5
+			)
+			control "is_metal" "boolean" (
+				"uiName" "Is Metal",
+				"value" 1
+			)
+		}
+		control "DiffuseParameters" "struct" (
+			"uiName" "Diffuse Parameters",
+			"openstate" "true"
+		)
+		{
+			control "diffuse_color" "color" (
+				"uiName" "Diffuse Color",
+				"value" 1.0 1.0 1.0
+			)
+			control "diffuse_weight" "scalar" (
+				"uiName" "Diffuse Weight",
+				"value" 1.0
+			)
+			control "roughness" "scalar" (
+				"uiName" "Roughness",
+				"value" 0.0
+			)
+		}
+		control "SpecularParameters" "struct" (
+			"uiName" "Specular Parameters",
+			"openstate" "true"
+		)
+		{
+			control "specular_color" "color" (
+				"uiName" "Specular Color",
+				"value" 1.0 1.0 1.0
+			)
+			control "specular_weight" "scalar" (
+				"uiName" "Specular Weight",
+				"value" 0.2
+			)
+			control "specular_mode" "integer" (
+				"enum",
+				"nonConnectable",
+				"uiName" "Specular Mode",
+				"value" "0 Ward, 1 Stretched Phong, 2 Blinn, 3 Cook-Torrance",
+				"range" 0 3
+			)
+			control "glossiness" "scalar" (
+				"uiName" "Glossiness",
+				"value" 1.0
+			)
+		}
+		control "ReflectionParameters" "struct" (
+			"uiName" "Reflection Parameters",
+			"openstate" "true"
+		)
+		{
+			control "reflection_color" "color" (
+				"uiName" "Reflection Color",
+				"value" 1.0 1.0 1.0
+			)
+			control "reflection_weight" "scalar" (
+				"uiName" "Reflection Weight",
+				"value" 0.0
+			)
+		}
+		control "RefractionParameters" "struct" (
+			"uiName" "Refraction Parameters",
+			"openstate" "true"
+		)
+		{
+			control "refraction_color" "color" (
+				"uiName" "Refraction Color",
+				"value" 1.0 1.0 1.0
+			)
+			control "refraction_weight" "scalar" (
+				"uiName" "Refraction Weight",
+				"value" 0.0
+			)
+			control "refraction_glossiness" "scalar" (
+				"uiName" "Refraction Glossiness",
+				"value" 0.0
+			)
+			control "refraction_thickness" "scalar" (
+				"uiName" "Refraction Thickness",
+				"value" 0.0
+			)
+		}
+		control "TranslucencyParameters" "struct" (
+			"uiName" "Translucency Parameters",
+			"openstate" "true"
+		)
+		{
+			control "translucency_color" "color" (
+				"uiName" "Translucency Color",
+				"value" 1.0 1.0 1.0
+			)
+			control "translucency_weight" "scalar" (
+				"uiName" "Translucency Weight",
+				"value" 0.0
+			)
+			control "translucency_mode" "integer" (
+				"enum",
+				"nonConnectable",
+				"uiName" "Translucency Mode",
+				"value" "0 Simple, 1 Single Scattering",
+				"range" 0 1
+			)
+			control "sss_color" "color" (
+				"uiName" "SSS Color",
+				"value" 0.8 0.8 0.8
+			)
+			control "sss_scale_color" "color" (
+				"uiName" "SSS Scale Color",
+				"value" 0.5 0.5 0.5
+			)
+			control "sss_scale_weight" "scalar" (
+				"uiName" "SSS Scale Weight",
+				"value" 10.0
+			)
+			control "sss_phase" "scalar" (
+				"uiName" "SSS Phase",
+				"value" 0.0
+			)
+		}
+		control "FresnelParameters" "struct" (
+			"uiName" "Fresnel Parameters",
+			"openstate" "true"
+		)
+		{
+			control "fresnel_by_ior" "boolean" (
+				"uiName" "Fresnel By IOR",
+				"value" 0
+			)
+			control "fresnel_0_degree_refl" "scalar" (
+				"uiName" "Fresnel 0 Degree Reflectivity",
+				"value" 0.2
+			)
+			control "fresnel_90_degree_refl" "scalar" (
+				"uiName" "Fresnel 90 Degree Reflectivity",
+				"value" 1.0
+			)
+			control "fresnel_curve" "scalar" (
+				"uiName" "Fresnel Curve",
+				"value" 5.0
+			)
+		}
+		control "SamplingParameters" "struct" (
+			"uiName" "Sampling Parameters",
+			"openstate" "true"
+		)
+		{
+			control "diffuse_samples" "integer" (
+				"uiName" "Diffuse Samples",
+				"value" 8
+			)
+			control "reflection_samples" "integer" (
+				"uiName" "Reflection Samples",
+				"value" 4
+			)
+			control "refraction_samples" "integer" (
+				"uiName" "Refraction Samples",
+				"value" 4
+			)
+			control "sss_samples" "integer" (
+				"uiName" "SSS Samples",
+				"value" 64
+			)
+			control "cutoff_threshold" "scalar" (
+				"uiName" "Cutoff Threshold",
+				"value" 0.01
+			)
+		}
+		control "BumpParameters" "struct" (
+			"uiName" "Bump Parameters",
+			"openstate" "true"
+		)
+		{
+			control "bump_shader" "shader" (
+				"uiName" "Bump Shader"
+			)
+			control "bump_factor" "scalar" (
+				"uiName" "Bump Factor",
+				"value" 0.3
+			)
+		}
+		control "DisplaceParameters" "struct" (
+			"uiName" "Displacement Parameters",
+			"openstate" "true"
+		)
+		{
+			control "displace_shader" "shader" (
+				"uiName" "Displacement Shader"
+			)
+			control "displace_factor" "scalar" (
+				"uiName" "Displacement Factor",
+				"value" 1.0
+			)
+		}
+	}
+end declare

@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="..\dependencies\strutil.cpp">
+      <Filter>dependencies</Filter>
+    </ClCompile>
+    <ClCompile Include="DotSceneExport.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Exporter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ImageCompressor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ImageLoader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="oiramImpl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LogManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AnalyzerMaterial.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AnalyzerGeometry.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AnalyzerSkeleton.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OptimizerPhysX.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OptimizerGeometry.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OptimizerAnimation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Optimizer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\dependencies\rapidxml.hpp">
+      <Filter>dependencies</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\rapidxml_print.hpp">
+      <Filter>dependencies</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\scene.h">
+      <Filter>dependencies</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\requisites.h">
+      <Filter>dependencies</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\serializer.h">
+      <Filter>dependencies</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\strutil.h">
+      <Filter>dependencies</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\type.h">
+      <Filter>dependencies</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\fogatmos.h">
+      <Filter>dependencies\3dmax standard material</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\mix.h">
+      <Filter>dependencies\3dmax standard material</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\normalrender.h">
+      <Filter>dependencies\3dmax standard material</Filter>
+    </ClInclude>
+    <ClInclude Include="Analyzer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DotSceneExport.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Exporter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ImageCompressor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ImageLoader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\res\resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LogManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\crashreport.h">
+      <Filter>dependencies</Filter>
+    </ClInclude>
+    <ClInclude Include="Optimizer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="dependencies">
+      <UniqueIdentifier>{081d2342-9a55-478d-a7f0-7aa067ded97e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="dependencies\3dmax standard material">
+      <UniqueIdentifier>{38d33da5-b99a-4f37-9262-a4327505b3db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{9eb90f22-260e-4f8f-bee3-70a8a19b6175}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{1f8adbcc-3b65-4891-831f-1abcbe543d82}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{46f9c85c-552b-42ca-8264-3ae139045527}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="oiramImpl.def">
+      <Filter>Resource Files</Filter>
+    </None>
+  </ItemGroup>
+</Project>

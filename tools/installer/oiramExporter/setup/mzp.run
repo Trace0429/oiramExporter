@@ -1,0 +1,9 @@
+-- 复制插件
+treeCopy "install\module\" to "$max\plugins"
+-- 复制运行库
+copy "install\vcrt\*.*" to "$max"
+
+-- 开始安装
+run install.ms
+
+clear temp on MAX exit

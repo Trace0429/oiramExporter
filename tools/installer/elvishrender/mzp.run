@@ -1,0 +1,16 @@
+name "elvishrender"
+version 0.1
+
+-- 复制startup.ms到3dsmax的Scripts\Startup目录下
+copy "oiram.ms" "$startupScripts"
+copy "oiram_startup.ms" "$startupScripts"
+
+-- 复制文件
+treeCopy "mentalray" to "$max\mentalray"
+treeCopy "elvishrender_install" to "$max\plugins"
+
+
+-- 解压并执行install.ms
+drop install.ms
+
+clear temp on MAX exit

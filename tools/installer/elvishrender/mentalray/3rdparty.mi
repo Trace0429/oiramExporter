@@ -1,0 +1,19 @@
+#*****************************************************************************
+# Copyright 2005 by Autodesk
+# 
+#*****************************************************************************
+# Author:	Daniel Levesque
+# Created:	05 April 2004
+# Purpose:	Main file for including all the 3rd party shader definitions.
+#****************************************************************************/
+
+registry "{_AUTODESK_REG_3DSMAX_LOAD_3RDPARTY_SHADERS}"
+
+	# Add "link" and "mi" statements here, to load your shaders.
+
+	# Example:
+	# link "base.dll"
+	# mi "base.mi"
+	mi "ei_architectural.mi"
+	
+end registry 

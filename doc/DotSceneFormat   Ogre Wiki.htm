@@ -1,0 +1,914 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0045)http://www.ogre3d.org/tikiwiki/DotSceneFormat -->
+<HTML xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" id="page_839"><HEAD><META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+
+<META name="generator" content="Tiki Wiki CMS Groupware - http://TikiWiki.org">
+	<META name="keywords" content="Ogre, Ogre3d, wiki, support  ">
+
+
+<TITLE>
+				DotSceneFormat : Ogre Wiki
+		</TITLE>
+
+	<LINK rel="icon" href="http://www.ogre3d.org/tikiwiki/ogrefavicon.ico">
+
+
+	<LINK rel="StyleSheet" href="./DotSceneFormat   Ogre Wiki_files/layerstreemenu.css" type="text/css">
+<LINK rel="StyleSheet" href="./DotSceneFormat   Ogre Wiki_files/layerstreemenu-hidden.css" type="text/css">
+<SCRIPT type="text/javascript">
+<!--//--><![CDATA[//><!--
+var numl;var toBeHidden;// PHP Layers Menu 3.2.0-rc (C) 2001-2004 Marco Pratesi - http://www.marcopratesi.it/
+
+DOM = (document.getElementById) ? 1 : 0;
+NS4 = (document.layers) ? 1 : 0;
+// We need to explicitly detect Konqueror
+// because Konqueror 3 sets IE = 1 ... AAAAAAAAAARGHHH!!!
+Konqueror = (navigator.userAgent.indexOf('Konqueror') > -1) ? 1 : 0;
+// We need to detect Konqueror 2.2 as it does not handle the window.onresize event
+Konqueror22 = (navigator.userAgent.indexOf('Konqueror 2.2') > -1 || navigator.userAgent.indexOf('Konqueror/2.2') > -1) ? 1 : 0;
+Konqueror30 =
+	(
+		navigator.userAgent.indexOf('Konqueror 3.0') > -1
+		|| navigator.userAgent.indexOf('Konqueror/3.0') > -1
+		|| navigator.userAgent.indexOf('Konqueror 3;') > -1
+		|| navigator.userAgent.indexOf('Konqueror/3;') > -1
+		|| navigator.userAgent.indexOf('Konqueror 3)') > -1
+		|| navigator.userAgent.indexOf('Konqueror/3)') > -1
+	)
+	? 1 : 0;
+Konqueror31 = (navigator.userAgent.indexOf('Konqueror 3.1') > -1 || navigator.userAgent.indexOf('Konqueror/3.1') > -1) ? 1 : 0;
+// We need to detect Konqueror 3.2 and 3.3 as they are affected by the see-through effect only for 2 form elements
+Konqueror32 = (navigator.userAgent.indexOf('Konqueror 3.2') > -1 || navigator.userAgent.indexOf('Konqueror/3.2') > -1) ? 1 : 0;
+Konqueror33 = (navigator.userAgent.indexOf('Konqueror 3.3') > -1 || navigator.userAgent.indexOf('Konqueror/3.3') > -1) ? 1 : 0;
+Opera = (navigator.userAgent.indexOf('Opera') > -1) ? 1 : 0;
+Opera5 = (navigator.userAgent.indexOf('Opera 5') > -1 || navigator.userAgent.indexOf('Opera/5') > -1) ? 1 : 0;
+Opera6 = (navigator.userAgent.indexOf('Opera 6') > -1 || navigator.userAgent.indexOf('Opera/6') > -1) ? 1 : 0;
+Opera56 = Opera5 || Opera6;
+IE = (navigator.userAgent.indexOf('MSIE') > -1) ? 1 : 0;
+IE = IE && !Opera;
+IE5 = IE && DOM;
+IE4 = (document.all) ? 1 : 0;
+IE4 = IE4 && IE && !DOM;
+
+//--><!]]>
+</SCRIPT>
+
+
+
+
+
+
+
+		
+<LINK rel="stylesheet" href="./DotSceneFormat   Ogre Wiki_files/minified_45065a3e0d56b8811225576ba7dc1533.css" type="text/css" media="screen">
+<LINK rel="stylesheet" href="./DotSceneFormat   Ogre Wiki_files/minified_45065a3e0d56b8811225576ba7dc1533.css" type="text/css" media="print">
+<!--[if lt IE 7]>
+<link rel="stylesheet" href="css/ie6.css" type="text/css" />
+<link rel="stylesheet" href="styles/ogre/ie6.css" type="text/css" />
+<![endif]-->
+<!--[if IE 7]>
+<link rel="stylesheet" href="css/ie7.css" type="text/css" />
+<link rel="stylesheet" href="styles/ogre/ie7.css" type="text/css" />
+<![endif]-->
+<!--[if IE 8]>
+<link rel="stylesheet" href="css/ie8.css" type="text/css" />
+<![endif]-->
+
+	</HEAD><BODY class="tiki tiki_wiki_page"><DIV id="cboxOverlay" style="display: none; "></DIV><DIV id="colorbox" style="padding-bottom: 42px; padding-right: 42px; display: none; "><DIV id="cboxWrapper"><DIV><DIV id="cboxTopLeft" style="float: left; "></DIV><DIV id="cboxTopCenter" style="float: left; "></DIV><DIV id="cboxTopRight" style="float: left; "></DIV></DIV><DIV><DIV id="cboxMiddleLeft" style="float: left; "></DIV><DIV id="cboxContent" style="float: left; "><DIV id="cboxLoadedContent" style="width: 0px; height: 0px; " class=""></DIV><DIV id="cboxLoadingOverlay" class=""></DIV><DIV id="cboxLoadingGraphic" class=""></DIV><DIV id="cboxTitle" class=""></DIV><DIV id="cboxCurrent" class=""></DIV><DIV id="cboxSlideshow" class=""></DIV><DIV id="cboxNext" class=""></DIV><DIV id="cboxPrevious" class=""></DIV><DIV id="cboxClose" class=""></DIV></DIV><DIV id="cboxMiddleRight" style="float: left; "></DIV></DIV><DIV><DIV id="cboxBottomLeft" style="float: left; "></DIV><DIV id="cboxBottomCenter" style="float: left; "></DIV><DIV id="cboxBottomRight" style="float: left; "></DIV></DIV></DIV><DIV style="position:absolute; top:0; left:0; width:9999px; height:0;"></DIV></DIV>
+		<UL class="jumplinks" style="position:absolute;top:-9000px;left:-9000px;z-index:9;">
+			<LI><A href="http://www.ogre3d.org/tikiwiki/DotSceneFormat#tiki-center">Jump to Content</A></LI>
+		</UL>
+
+		
+
+
+
+	<DIV id="fixedwidth"> 
+					<DIV id="main-shadow">
+			<DIV id="cluetip-waitimage" style="position: absolute; display: none; "></DIV><DIV id="cluetip" style="display: none; position: absolute; "><DIV style="z-index: 399; opacity: 0.1; top: 1px; left: 1px; position: absolute; background-color: rgb(0, 0, 0); "></DIV><DIV style="z-index: 399; opacity: 0.1; top: 2px; left: 2px; position: absolute; background-color: rgb(0, 0, 0); "></DIV><DIV style="z-index: 399; opacity: 0.1; top: 3px; left: 3px; position: absolute; background-color: rgb(0, 0, 0); "></DIV><DIV style="z-index: 399; opacity: 0.1; top: 4px; left: 4px; position: absolute; background-color: rgb(0, 0, 0); "></DIV><DIV style="z-index: 399; opacity: 0.1; top: 5px; left: 5px; position: absolute; background-color: rgb(0, 0, 0); "></DIV><DIV style="z-index: 399; opacity: 0.1; top: 6px; left: 6px; position: absolute; background-color: rgb(0, 0, 0); "></DIV><DIV id="cluetip-outer" style="position: relative; z-index: 400; "><H3 id="cluetip-title"></H3><DIV id="cluetip-inner"></DIV></DIV><DIV id="cluetip-extra"></DIV><DIV id="cluetip-arrows" class="cluetip-arrows"></DIV></DIV><DIV id="main">
+									<DIV id="header-shadow">
+								<DIV class="clearfix" id="header">
+		
+				<DIV class="clearfix" id="siteheader">
+		
+
+
+
+
+<DIV class="clearfix" id="header-top">
+
+
+
+		
+
+
+
+			<DIV class="clearfix" id="sioptions">
+																<DIV id="customcode" class="floatright">
+						<DIV style="float:right;"><A href="http://www.ogre3d.org/forums/" title="Ogre Forums">Ogre Forums</A>&nbsp;&nbsp;<A href="http://www.ogre3d.org/" title="ogre3d.org">ogre3d.org</A></DIV>
+					</DIV>
+								<DIV id="sitelogo" class="floatleft">
+					<A href="http://www.ogre3d.org/tikiwiki/" title="Ogre Wiki"><IMG src="./DotSceneFormat   Ogre Wiki_files/site_logo.gif" alt="Ogre Wiki"></A>				</DIV>
+									<DIV id="sitetitles" class="floatleft">
+							<DIV id="sitetitle">
+		<A href="http://www.ogre3d.org/tikiwiki/">Ogre Wiki</A>	</DIV>
+	<DIV id="sitesubtitle">
+		 Support and community documentation for Ogre3D 	</DIV>
+
+					</DIV>
+							
+					</DIV>
+	
+	
+		
+
+	
+	
+
+
+
+
+
+
+
+
+
+<DIV id="siteloginbar"><A href="http://www.ogre3d.org/tikiwiki/tiki-login.php" title="Login">Login</A></DIV>
+<!--[if IE]><br style="clear:both; height: 0" /><![endif]-->
+</DIV>
+
+<DIV class="clearfix" id="tiki-top">
+
+	
+
+			<DIV>
+			<UL id="cssmenu0" class="cssmenu_horiz menu43 sf-js-enabled sf-shadow"><LI class="option182 menuOption menuLevel0"><A href="http://www.ogre3d.org/tikiwiki/Home"><SPAN class="menuText">Home</SPAN></A></LI><LI class="option183 menuSection menuSection0 menuLevel0"><A href="http://www.ogre3d.org/tikiwiki/Tutorials" class="sf-with-ul"><SPAN class="menuText">Tutorials</SPAN><SPAN class="sf-sub-indicator"> »</SPAN></A><UL style="float: none; width: 14.5em; display: none; visibility: hidden; "><LI class="option383 menuOption menuLevel1" style="float: left; width: 100%; white-space: normal; "><A href="http://www.ogre3d.org/tikiwiki/Tutorials" style="float: none; width: auto; "><SPAN class="menuText">Tutorials Home</SPAN></A></LI><LI class="option192 menuOption menuLevel1" style="float: left; width: 100%; white-space: normal; "><A href="http://www.ogre3d.org/tikiwiki/Basic+Tutorials" style="float: none; width: auto; "><SPAN class="menuText">Basic Tutorials</SPAN></A></LI><LI class="option194 menuOption menuLevel1" style="float: left; width: 100%; white-space: normal; "><A href="http://www.ogre3d.org/tikiwiki/Intermediate+Tutorials" style="float: none; width: auto; "><SPAN class="menuText">Intermediate Tutorials</SPAN></A></LI><LI class="option212 menuOption menuLevel1" style="float: left; width: 100%; white-space: normal; "><A href="http://www.ogre3d.org/tikiwiki/In+Depth+Tutorials" style="float: none; width: auto; "><SPAN class="menuText">In Depth Tutorials</SPAN></A></LI><LI class="option382 menuOption menuLevel1" style="float: left; width: 100%; white-space: normal; "><A href="http://www.ogre3d.org/tikiwiki/External+Tutorials" style="float: none; width: auto; "><SPAN class="menuText">External Tutorials</SPAN></A></LI><LI class="option285 menuOption menuLevel1" style="float: left; width: 100%; white-space: normal; "><A href="http://www.ogre3d.org/tikiwiki/Older+Tutorials" style="float: none; width: auto; "><SPAN class="menuText">Older Tutorials</SPAN></A></LI></UL></LI><LI class="option184 menuSection menuSection0 menuLevel0"><A href="http://www.ogre3d.org/tikiwiki/Cookbook" class="sf-with-ul"><SPAN class="menuText">Cookbook</SPAN><SPAN class="sf-sub-indicator"> »</SPAN></A><UL style="float: none; width: 11.0833em; display: none; visibility: hidden; "><LI class="option384 menuOption menuLevel1" style="float: left; width: 100%; white-space: normal; "><A href="http://www.ogre3d.org/tikiwiki/Cookbook" style="float: none; width: auto; "><SPAN class="menuText">Cookbook Home</SPAN></A></LI><LI class="option265 menuOption menuLevel1" style="float: left; width: 100%; white-space: normal; "><A href="http://www.ogre3d.org/tikiwiki/CodeBank" style="float: none; width: auto; "><SPAN class="menuText">CodeBank</SPAN></A></LI><LI class="option266 menuOption menuLevel1" style="float: left; width: 100%; white-space: normal; "><A href="http://www.ogre3d.org/tikiwiki/Snippets" style="float: none; width: auto; "><SPAN class="menuText">Snippets</SPAN></A></LI><LI class="option267 menuOption menuLevel1" style="float: left; width: 100%; white-space: normal; "><A href="http://www.ogre3d.org/tikiwiki/Experiences" style="float: none; width: auto; "><SPAN class="menuText">Experiences</SPAN></A></LI><LI class="option268 menuOption menuLevel1" style="float: left; width: 100%; white-space: normal; "><A href="http://www.ogre3d.org/tikiwiki/OgreArticles" style="float: none; width: auto; "><SPAN class="menuText">Ogre Articles</SPAN></A></LI></UL></LI><LI class="option185 menuSection menuSection0 menuLevel0"><A href="http://www.ogre3d.org/tikiwiki/Libraries" class="sf-with-ul"><SPAN class="menuText">Libraries</SPAN><SPAN class="sf-sub-indicator"> »</SPAN></A><UL style="float: none; width: 14.5em; display: none; visibility: hidden; "><LI class="option385 menuOption menuLevel1" style="float: left; width: 100%; white-space: normal; "><A href="http://www.ogre3d.org/tikiwiki/Libraries" style="float: none; width: auto; "><SPAN class="menuText">Libraries Home</SPAN></A></LI><LI class="option273 menuOption menuLevel1" style="float: left; width: 100%; white-space: normal; "><A href="http://www.ogre3d.org/tikiwiki/Assembling+A+Toolset" style="float: none; width: auto; "><SPAN class="menuText">Assembling A Toolset</SPAN></A></LI><LI class="option274 menuOption menuLevel1" style="float: left; width: 100%; white-space: normal; "><A href="http://www.ogre3d.org/tikiwiki/Alternative+Languages" style="float: none; width: auto; "><SPAN class="menuText">Alternative Languages</SPAN></A></LI><LI class="option276 menuOption menuLevel1" style="float: left; width: 100%; white-space: normal; "><A href="http://www.ogre3d.org/tikiwiki/Libs" style="float: none; width: auto; "><SPAN class="menuText">Libs</SPAN></A></LI></UL></LI><LI class="option190 menuSection menuSection0 menuLevel0"><A href="http://www.ogre3d.org/tikiwiki/Tools" class="sf-with-ul"><SPAN class="menuText">Tools</SPAN><SPAN class="sf-sub-indicator"> »</SPAN></A><UL style="float: none; width: 20em; display: none; visibility: hidden; "><LI class="option386 menuOption menuLevel1" style="float: left; width: 100%; white-space: normal; "><A href="http://www.ogre3d.org/tikiwiki/Tools" style="float: none; width: auto; "><SPAN class="menuText">Tools Home</SPAN></A></LI><LI class="option277 menuOption menuLevel1" style="float: left; width: 100%; white-space: normal; "><A href="http://www.ogre3d.org/tikiwiki/DCC+Tools" style="float: none; width: auto; "><SPAN class="menuText">DCC Tools</SPAN></A></LI><LI class="option269 menuOption menuLevel1" style="float: left; width: 100%; white-space: normal; "><A href="http://www.ogre3d.org/tikiwiki/DCC+Tutorials" style="float: none; width: auto; "><SPAN class="menuText">DCC Tutorials</SPAN></A></LI><LI class="option270 menuOption menuLevel1" style="float: left; width: 100%; white-space: normal; "><A href="http://www.ogre3d.org/tikiwiki/DCC+Articles" style="float: none; width: auto; "><SPAN class="menuText">DCC Articles</SPAN></A></LI><LI class="option271 menuOption menuLevel1" style="float: left; width: 100%; white-space: normal; "><A href="http://www.ogre3d.org/tikiwiki/DCC+Resources" style="float: none; width: auto; "><SPAN class="menuText">DCC Resources</SPAN></A></LI><LI class="option272 menuOption menuLevel1" style="float: left; width: 100%; white-space: normal; "><A href="http://www.ogre3d.org/tikiwiki/Assembling+a+production+pipeline" style="float: none; width: auto; "><SPAN class="menuText">Assembling a production pipeline</SPAN></A></LI></UL></LI><LI class="option189 menuSection menuSection0 menuLevel0"><A href="http://www.ogre3d.org/tikiwiki/Development" class="sf-with-ul"><SPAN class="menuText">Development</SPAN><SPAN class="sf-sub-indicator"> »</SPAN></A><UL style="float: none; width: 19em; display: none; visibility: hidden; "><LI class="option387 menuOption menuLevel1" style="float: left; width: 100%; white-space: normal; "><A href="http://www.ogre3d.org/tikiwiki/Development" style="float: none; width: auto; "><SPAN class="menuText">Development Home</SPAN></A></LI><LI class="option201 menuOption menuLevel1" style="float: left; width: 100%; white-space: normal; "><A href="http://www.ogre3d.org/tikiwiki/Roadmap" style="float: none; width: auto; "><SPAN class="menuText">Roadmap</SPAN></A></LI><LI class="option202 menuOption menuLevel1" style="float: left; width: 100%; white-space: normal; "><A href="http://www.ogre3d.org/tikiwiki/Building+Ogre" style="float: none; width: auto; "><SPAN class="menuText">Building Ogre</SPAN></A></LI><LI class="option292 menuOption menuLevel1" style="float: left; width: 100%; white-space: normal; "><A href="http://www.ogre3d.org/tikiwiki/Installing+the+Ogre+SDK" style="float: none; width: auto; "><SPAN class="menuText">Installing the Ogre SDK</SPAN></A></LI><LI class="option293 menuOption menuLevel1" style="float: left; width: 100%; white-space: normal; "><A href="http://www.ogre3d.org/tikiwiki/Setting+Up+An+Application" style="float: none; width: auto; "><SPAN class="menuText">Setting Up An Application</SPAN></A></LI><LI class="option395 menuOption menuLevel1" style="float: left; width: 100%; white-space: normal; "><A href="http://www.ogre3d.org/tikiwiki/Ogre+Wiki+Tutorial+Framework" style="float: none; width: auto; "><SPAN class="menuText">Ogre Wiki Tutorial Framework</SPAN></A></LI><LI class="option287 menuOption menuLevel1" style="float: left; width: 100%; white-space: normal; "><A href="http://www.ogre3d.org/tikiwiki/Frequently+Asked+Questions" style="float: none; width: auto; "><SPAN class="menuText">Frequently Asked Questions</SPAN></A></LI><LI class="option208 menuOption menuLevel1" style="float: left; width: 100%; white-space: normal; "><A href="http://www.ogre3d.org/tikiwiki/Google+Summer+Of+Code" style="float: none; width: auto; "><SPAN class="menuText">Google Summer Of Code</SPAN></A></LI><LI class="option210 menuOption menuLevel1" style="float: left; width: 100%; white-space: normal; "><A href="http://www.ogre3d.org/tikiwiki/Help+Requested" style="float: none; width: auto; "><SPAN class="menuText">Help Requested</SPAN></A></LI><LI class="option283 menuOption menuLevel1" style="float: left; width: 100%; white-space: normal; "><A href="http://www.ogre3d.org/tikiwiki/Ogre+Core+Articles" style="float: none; width: auto; "><SPAN class="menuText">Ogre Core Articles</SPAN></A></LI></UL></LI><LI class="option187 menuSection menuSection0 menuLevel0"><A href="http://www.ogre3d.org/tikiwiki/Community" class="sf-with-ul"><SPAN class="menuText">Community</SPAN><SPAN class="sf-sub-indicator"> »</SPAN></A><UL style="float: none; width: 14.9167em; display: none; visibility: hidden; "><LI class="option388 menuOption menuLevel1" style="float: left; width: 100%; white-space: normal; "><A href="http://www.ogre3d.org/tikiwiki/Community" style="float: none; width: auto; "><SPAN class="menuText">Community Home</SPAN></A></LI><LI class="option261 menuOption menuLevel1" style="float: left; width: 100%; white-space: normal; "><A href="http://www.ogre3d.org/tikiwiki/Projects+Using+OGRE" style="float: none; width: auto; "><SPAN class="menuText">Projects Using Ogre</SPAN></A></LI><LI class="option279 menuOption menuLevel1" style="float: left; width: 100%; white-space: normal; "><A href="http://www.ogre3d.org/tikiwiki/Recommended+reading" style="float: none; width: auto; "><SPAN class="menuText">Recommended Reading</SPAN></A></LI><LI class="option286 menuOption menuLevel1" style="float: left; width: 100%; white-space: normal; "><A href="http://www.ogre3d.org/tikiwiki/Contractors" style="float: none; width: auto; "><SPAN class="menuText">Contractors</SPAN></A></LI><LI class="option262 menuSection menuSection1 menuLevel1" style="float: left; width: 100%; white-space: normal; "><A href="http://www.ogre3d.org/tikiwiki/Wiki" style="float: none; width: auto; " class="sf-with-ul"><SPAN class="menuText">Wiki</SPAN><SPAN class="sf-sub-indicator"> »</SPAN></A><UL style="left: 14.9167em; float: none; width: 16.25em; display: none; visibility: hidden; "><LI class="option256 menuOption menuLevel2" style="float: left; width: 100%; white-space: normal; "><A href="http://www.ogre3d.org/tikiwiki/Immediate+Wiki+Tasklist" style="float: none; width: auto; "><SPAN class="menuText">Immediate Wiki Tasklist</SPAN></A></LI><LI class="option391 menuOption menuLevel2" style="float: left; width: 100%; white-space: normal; "><A href="http://www.ogre3d.org/tikiwiki/Wiki+Ideas" style="float: none; width: auto; "><SPAN class="menuText">Wiki Ideas</SPAN></A></LI><LI class="option254 menuOption menuLevel2" style="float: left; width: 100%; white-space: normal; "><A href="http://www.ogre3d.org/tikiwiki/Wiki+Guidelines" style="float: none; width: auto; "><SPAN class="menuText">Wiki Guidelines</SPAN></A></LI><LI class="option284 menuOption menuLevel2" style="float: left; width: 100%; white-space: normal; "><A href="http://www.ogre3d.org/tikiwiki/Article+Writing+Guidelines" style="float: none; width: auto; "><SPAN class="menuText">Article Writing Guidelines</SPAN></A></LI><LI class="option263 menuOption menuLevel2" style="float: left; width: 100%; white-space: normal; "><A href="http://www.ogre3d.org/tikiwiki/Wiki+Styles" style="float: none; width: auto; "><SPAN class="menuText">Wiki Styles</SPAN></A></LI><LI class="option282 menuOption menuLevel2" style="float: left; width: 100%; white-space: normal; "><A href="http://www.ogre3d.org/tikiwiki/Wiki+Tracker" style="float: none; width: auto; "><SPAN class="menuText">Wiki Page Tracker</SPAN></A></LI></UL></LI></UL></LI></UL>
+</DIV><DIV>
+			<UL id="cssmenu1" class="cssmenu_horiz menu50 sf-js-enabled sf-shadow"><LI class="option396 menuSection menuSection0 menuLevel0"><A href="http://www.ogre3d.org/tikiwiki/Ogre+Wiki+Help" class="sf-with-ul"><SPAN class="menuText">Ogre Wiki Help</SPAN><SPAN class="sf-sub-indicator"> »</SPAN></A><UL style="float: none; width: 17.5833em; display: none; visibility: hidden; "><LI class="option397 menuOption menuLevel1" style="float: left; width: 100%; white-space: normal; "><A href="http://www.ogre3d.org/tikiwiki/Ogre+Wiki+Help" style="float: none; width: auto; "><SPAN class="menuText">Ogre Wiki Help Overview</SPAN></A></LI><LI class="option398 menuOption menuLevel1" style="float: left; width: 100%; white-space: normal; "><A href="http://www.ogre3d.org/tikiwiki/Help+-+Basic+Syntax" style="float: none; width: auto; "><SPAN class="menuText">Help - Basic Syntax</SPAN></A></LI><LI class="option399 menuOption menuLevel1" style="float: left; width: 100%; white-space: normal; "><A href="http://www.ogre3d.org/tikiwiki/Help+-+Images" style="float: none; width: auto; "><SPAN class="menuText">Help - Images</SPAN></A></LI><LI class="option400 menuOption menuLevel1" style="float: left; width: 100%; white-space: normal; "><A href="http://www.ogre3d.org/tikiwiki/Help+-+Pages+and+Structures" style="float: none; width: auto; "><SPAN class="menuText">Help - Pages and Structures</SPAN></A></LI><LI class="option401 menuOption menuLevel1" style="float: left; width: 100%; white-space: normal; "><A href="http://www.ogre3d.org/tikiwiki/Help+-+Wiki+Plugins" style="float: none; width: auto; "><SPAN class="menuText">Help - Wiki Plugins</SPAN></A></LI></UL></LI></UL>
+</DIV><DIV>
+</DIV><DIV>
+			<UL id="cssmenu3" class="cssmenu_horiz menu45 sf-js-enabled sf-shadow"><LI class="option390 menuSection menuSection0 menuLevel0"><A href="" class="sf-with-ul"><SPAN class="menuText">Toolbox</SPAN><SPAN class="sf-sub-indicator"> »</SPAN></A><UL style="float: none; width: 11em; display: none; visibility: hidden; "><LI class="option239 menuOption menuLevel1" style="float: left; width: 100%; white-space: normal; "><A href="http://www.ogre3d.org/tikiwiki/tiki-browse_freetags.php" style="float: none; width: auto; "><SPAN class="menuText">Freetags</SPAN></A></LI><LI class="option240 menuOption menuLevel1" style="float: left; width: 100%; white-space: normal; "><A href="http://www.ogre3d.org/tikiwiki/categories" style="float: none; width: auto; "><SPAN class="menuText">Categories</SPAN></A></LI><LI class="option241 menuOption menuLevel1" style="float: left; width: 100%; white-space: normal; "><A href="http://www.ogre3d.org/tikiwiki/tiki-listpages.php" style="float: none; width: auto; "><SPAN class="menuText">List Pages</SPAN></A></LI><LI class="option243 menuOption menuLevel1" style="float: left; width: 100%; white-space: normal; "><A href="http://www.ogre3d.org/tikiwiki/tiki-admin_structures.php" style="float: none; width: auto; "><SPAN class="menuText">Structures</SPAN></A></LI><LI class="option244 menuOption menuLevel1" style="float: left; width: 100%; white-space: normal; "><A href="http://www.ogre3d.org/tikiwiki/tiki-list_trackers.php" style="float: none; width: auto; "><SPAN class="menuText">Trackers</SPAN></A></LI><LI class="option260 menuOption menuLevel1" style="float: left; width: 100%; white-space: normal; "><A href="http://www.ogre3d.org/tikiwiki/tiki-list_file_gallery.php" style="float: none; width: auto; "><SPAN class="menuText">List Galleries</SPAN></A></LI><LI class="option281 menuOption menuLevel1" style="float: left; width: 100%; white-space: normal; "><A href="http://www.ogre3d.org/tikiwiki/Ogre+Lexicon" style="float: none; width: auto; "><SPAN class="menuText">Ogre Lexicon</SPAN></A></LI><LI class="option392 menuOption menuLevel1" style="float: left; width: 100%; white-space: normal; "><A href="http://www.ogre3d.org/tikiwiki/Comments" style="float: none; width: auto; "><SPAN class="menuText">Comments</SPAN></A></LI><LI class="option394 menuOption menuLevel1" style="float: left; width: 100%; white-space: normal; "><A href="http://www.ogre3d.org/tikiwiki/tiki-shoutbox.php" style="float: none; width: auto; "><SPAN class="menuText">Shoutbox</SPAN></A></LI></UL></LI></UL>
+</DIV><DIV>
+</DIV>
+	
+
+
+</DIV>				</DIV>
+			</DIV></DIV>
+			<DIV id="middle-shadow"><DIV class="clearfix" id="middle">
+				<DIV class="clearfix nofullscreen" id="c1c2">
+					<DIV class="clearfix" id="wrapper">
+						<DIV id="col1" class=" marginright">
+
+								<DIV class="clearfix" id="showhide_columns">
+												<DIV class="clearfix" style="text-align:right;float:right">
+									<A class="flip" href="http://www.ogre3d.org/tikiwiki/DotSceneFormat#" onclick="toggleCols(&#39;col3&#39;,&#39;right&#39;); return false"><IMG src="./DotSceneFormat   Ogre Wiki_files/orightcol.png" alt="[Show/Hide Right Column]" width="16" height="16" class="colflip" border="0" title="[Show/Hide Right Column]"></A>
+								</DIV>
+										<BR style="clear:both">
+							</DIV>
+	
+
+							<DIV id="tiki-center-shadow"><DIV class="site_notice"><B><I>Welcome to the new Ogre Wiki!</I></B><BR>If you haven't done so already, be sure to visit the <A href="http://www.ogre3d.org/tikiwiki/tiki-index.php?page=Wiki">Wiki Portal</A> to read about how the wiki works. Especially the <A href="http://www.ogre3d.org/tikiwiki/tiki-index.php?page=Ogre+Wiki+Overview">Ogre Wiki Overview</A> page.</DIV>
+
+<DIV id="tiki-center" class="clearfix content">
+							<DIV role="main" id="role_main">
+ 
+	
+	 
+	
+	
+ 
+
+	<DIV class="wikitopline clearfix" style="clear: both;">
+	<DIV class="content">
+				<DIV class="wikiinfo" style="float: left">
+
+	<A href="http://www.ogre3d.org/tikiwiki/tiki-index.php?page=DotSceneFormat" class="titletop">DotSceneFormat</A>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+Discussion about the DotScene format (historic)
+
+		</DIV>
+		<DIV class="wikiactions" style="float: right; padding-left:10px; white-space: nowrap">
+			<DIV class="icons" style="float: left;">
+									<A title="Print" href="http://www.ogre3d.org/tikiwiki/tiki-print.php?page_ref_id=1247&page=DotSceneFormat"><IMG src="./DotSceneFormat   Ogre Wiki_files/printer.png" alt="Print" width="16" height="16" border="0" title="Print" class="icon"></A>
+	
+							</DIV><!-- END of icons -->
+
+				<FORM action="http://www.ogre3d.org/tikiwiki/tiki-index.php" method="get" style="display: block; float: left">
+				<SELECT name="page" onchange="this.form.submit()" title="Backlinks">
+					<OPTION>Backlinks...</OPTION>
+							<OPTION value="Blender dotScene Exporter" title="Blender dotScene Exporter">
+					Blender dotScene Exporter					</OPTION>
+							<OPTION value="DotScene" title="DotScene">
+					DotScene					</OPTION>
+							<OPTION value="MOGRE dotSceneLoader" title="MOGRE dotSceneLoader">
+					MOGRE dotSceneLoader					</OPTION>
+						</SELECT>
+			</FORM>
+	
+	
+			</DIV>
+ 
+ 
+	</DIV> 
+</DIV> 
+	
+
+
+	
+<DIV id="top" class="wikitext clearfix">
+			
+		
+		
+					<DIV class="tocnav">
+	<DIV class="clearfix">
+		<DIV style="float: left; width: 100px">
+  
+    <A href="http://www.ogre3d.org/tikiwiki/Cookbook&structure=Cookbook"><IMG src="./DotSceneFormat   Ogre Wiki_files/house.png" alt="TOC" width="16" height="16" title="Cookbook" border="0" class="icon"></A>
+    <A href="http://www.ogre3d.org/tikiwiki/DotScene&structure=Cookbook"><IMG src="./DotSceneFormat   Ogre Wiki_files/resultset_previous.png" alt="Previous page" width="16" height="16" title="DotScene" border="0" class="icon"></A>
+    <A href="http://www.ogre3d.org/tikiwiki/DotScene&structure=Cookbook"><IMG src="./DotSceneFormat   Ogre Wiki_files/resultset_up.png" alt="Parent page" width="16" height="16" title="DotScene" border="0" class="icon"></A>
+    <A href="http://www.ogre3d.org/tikiwiki/SceneManagersFAQ&structure=Cookbook"><IMG src="./DotSceneFormat   Ogre Wiki_files/resultset_next.png" alt="Next page" width="16" height="16" title="SceneManagersFAQ" border="0" class="icon"></A>
+		</DIV>
+  		<DIV style="float: left;">
+		</DIV>
+	</DIV>
+  	<DIV>
+  	<A href="http://www.ogre3d.org/tikiwiki/tiki-edit_structure.php?page_ref_id=5"><IMG src="./DotSceneFormat   Ogre Wiki_files/chart_organisation.png" alt="Structure" width="16" height="16" title="Structure (8.1)" border="0" class="icon"></A>&nbsp;&nbsp;
+          	  <A href="http://www.ogre3d.org/tikiwiki/Cookbook&structure=Cookbook">
+              Cookbook
+	  	  </A>
+	      &nbsp;»&nbsp;	  <A href="http://www.ogre3d.org/tikiwiki/DotScene&structure=Cookbook">
+              DotScene
+	  	  </A>
+	      &nbsp;»&nbsp;	  <A href="http://www.ogre3d.org/tikiwiki/DotSceneFormat&structure=Cookbook">
+              DotSceneFormat
+	  	  </A>
+		</DIV>
+</DIV>		
+		
+			 
+
+	
+			<P></P><FORM method="post" name="dyn_vars">
+<BR><SPAN class="dynavar" style="display:inline;" id="dyn_outofdate_display"><DIV style="border: 1px solid rgb(170, 170, 170); padding: 5px; width: 100%;"> <DIV><CENTER><SPAN class="img"><IMG alt="Warning_red-50px-Nuvola.png" src="./DotSceneFormat   Ogre Wiki_files/Warning_red-50px-Nuvola.png" border="0"></SPAN> <B>This article was written for an old version of Ogre3D and is therefore probably out of date!</B></CENTER> <P></P></DIV>  </DIV></SPAN>
+<P></P>
+<H2 class="showhide_heading" id="Discussion_on_the_DotScene_Format"> Discussion on the DotScene Format</H2>
+<P>There have been talks about how the dotScene format has become a bit outdated and in need of some bugfixes/enhancements. This page is dedicated to talking about such enhancements so that we can come to a consensus.
+</P>
+
+<H2 class="showhide_heading" id="Enhancements_Bugfixes_Proposals"> Enhancements/Bugfixes Proposals</H2>
+<UL><LI> I have taken the liberty to edit the .dtd in ogreaddons and make it standard compliant. There is still a warning about octnode not being declared which I heard is for the dotSceneOctree (maybe it should be removed from the general dotScene format). Another change is that I made local be the default on line 57 of the dtd. All the #DEFAULT were removed as they were not redundant. --Lodes<A href="http://www.ogre3d.org/tikiwiki/tiki-editpage.php?page=User%3ALodes" title="Create page: User%3ALodes" class="wiki wikinew">?</A> 14:44, 29 June 2006 (CDT)
+<UL><LI> <A class="wiki external" target="_blank" href="http://www.loisdesplat.com/dotscene.dtd" rel="external nofollow">DTD (dotscene.dtd)</A><IMG src="./DotSceneFormat   Ogre Wiki_files/external_link.gif" alt="(external link)" width="15" height="14" border="0" title="(external link)" class="icon">
+</LI><LI> <A class="wiki external" target="_blank" href="http://www.loisdesplat.com/dotscene.xsd" rel="external nofollow">XML Schema (dotscene.xsd)</A><IMG src="./DotSceneFormat   Ogre Wiki_files/external_link.gif" alt="(external link)" width="15" height="14" border="0" title="(external link)" class="icon">
+</LI></UL></LI><LI> I propose the removal of octree, octNode, octMesh, octGeometry, octMaterial elements from the format. There are specific to the dotSceneOctree scene manager and it has been said many times that this is an interchange format. So it should not be getting additions for specific things? At least not the general format. People are free to build on the .scene format to add their extensions though but that's their own format. --Lodes<A href="http://www.ogre3d.org/tikiwiki/tiki-editpage.php?page=User%3ALodes" title="Create page: User%3ALodes" class="wiki wikinew">?</A> 15:03, 29 June 2006 (CDT)
+</LI></UL>
+
+<H2 class="showhide_heading" id="Current_Format"> Current Format</H2>
+<P>DTD Format
+<BR></P><PRE class="codelisting" dir="ltr" style="white-space:pre-wrap; white-space:-moz-pre-wrap !important; white-space:-pre-wrap; white-space:-o-pre-wrap; word-wrap:break-word;"><SPAN style="color: #009900;">&lt;!ELEMENT scene <SPAN style="color: #66cc66;">(</SPAN>nodes?, externals?, environment?, terrain?, userDataReference?, octree?, light?, camera?<SPAN style="color: #66cc66;">)</SPAN><SPAN style="color: #000000; font-weight: bold;">&gt;</SPAN></SPAN>
+<SPAN style="color: #009900;">&lt;!ATTLIST scene</SPAN>
+<SPAN style="color: #009900;">    formatVersion    CDATA    #REQUIRED</SPAN>
+<SPAN style="color: #009900;">    id                ID        #IMPLIED</SPAN>
+<SPAN style="color: #009900;">    sceneManager    CDATA    #IMPLIED</SPAN>
+<SPAN style="color: #009900;">    minOgreVersion    CDATA    #IMPLIED</SPAN>
+<SPAN style="color: #009900;">    author            CDATA    #IMPLIED</SPAN>
+<SPAN style="color: #009900;"><SPAN style="color: #000000; font-weight: bold;">&gt;</SPAN></SPAN>
+&nbsp;
+<SPAN style="color: #009900;">&lt;!ELEMENT terrain EMPTY<SPAN style="color: #000000; font-weight: bold;">&gt;</SPAN></SPAN>
+<SPAN style="color: #009900;">&lt;!ATTLIST terrain</SPAN>
+<SPAN style="color: #009900;">    dataFile CDATA #IMPLIED</SPAN>
+<SPAN style="color: #009900;"><SPAN style="color: #000000; font-weight: bold;">&gt;</SPAN></SPAN>
+&nbsp;
+<SPAN style="color: #009900;">&lt;!ELEMENT nodes <SPAN style="color: #66cc66;">(</SPAN>node*, position?, rotation?, scale?<SPAN style="color: #66cc66;">)</SPAN><SPAN style="color: #000000; font-weight: bold;">&gt;</SPAN></SPAN>
+&nbsp;
+<SPAN style="color: #009900;">&lt;!ELEMENT node <SPAN style="color: #66cc66;">(</SPAN>position?, rotation?, scale?, lookTarget?, trackTarget?, node*, entity*, light*, camera*, particleSystem*, billboardSet*, plane*, userDataReference?<SPAN style="color: #66cc66;">)</SPAN><SPAN style="color: #000000; font-weight: bold;">&gt;</SPAN></SPAN>
+<SPAN style="color: #009900;">&lt;!ATTLIST node</SPAN>
+<SPAN style="color: #009900;">    name        CDATA    #IMPLIED</SPAN>
+<SPAN style="color: #009900;">    id            ID        #IMPLIED</SPAN>
+<SPAN style="color: #009900;">    isTarget    <SPAN style="color: #66cc66;">(</SPAN>true | false<SPAN style="color: #66cc66;">)</SPAN> <SPAN style="color: #ff0000;">"true"</SPAN></SPAN>
+<SPAN style="color: #009900;"><SPAN style="color: #000000; font-weight: bold;">&gt;</SPAN></SPAN>
+&nbsp;
+<SPAN style="color: #009900;">&lt;!ELEMENT particleSystem <SPAN style="color: #66cc66;">(</SPAN>userDataReference?<SPAN style="color: #66cc66;">)</SPAN><SPAN style="color: #000000; font-weight: bold;">&gt;</SPAN></SPAN>
+<SPAN style="color: #009900;">&lt;!ATTLIST particleSystem</SPAN>
+<SPAN style="color: #009900;">    name    CDATA    #IMPLIED</SPAN>
+<SPAN style="color: #009900;">    id        ID        #IMPLIED</SPAN>
+<SPAN style="color: #009900;">    file    CDATA    #REQUIRED</SPAN>
+<SPAN style="color: #009900;"><SPAN style="color: #000000; font-weight: bold;">&gt;</SPAN></SPAN>
+&nbsp;
+<SPAN style="color: #009900;">&lt;!ELEMENT light <SPAN style="color: #66cc66;">(</SPAN>position?, normal?, colourDiffuse?, colourSpecular?, lightRange?, lightAttenuation?, userDataReference?<SPAN style="color: #66cc66;">)</SPAN><SPAN style="color: #000000; font-weight: bold;">&gt;</SPAN></SPAN>
+<SPAN style="color: #009900;">&lt;!ATTLIST light</SPAN>
+<SPAN style="color: #009900;">    name            CDATA    #IMPLIED</SPAN>
+<SPAN style="color: #009900;">    id                ID        #IMPLIED</SPAN>
+<SPAN style="color: #009900;">    type            <SPAN style="color: #66cc66;">(</SPAN>point | directional | spot | radPoint<SPAN style="color: #66cc66;">)</SPAN> <SPAN style="color: #ff0000;">"point"</SPAN></SPAN>
+<SPAN style="color: #009900;">    visible            <SPAN style="color: #66cc66;">(</SPAN>true | false<SPAN style="color: #66cc66;">)</SPAN> <SPAN style="color: #ff0000;">"true"</SPAN></SPAN>
+<SPAN style="color: #009900;">    castShadows        <SPAN style="color: #66cc66;">(</SPAN>true | false<SPAN style="color: #66cc66;">)</SPAN> <SPAN style="color: #ff0000;">"true"</SPAN></SPAN>
+<SPAN style="color: #009900;"><SPAN style="color: #000000; font-weight: bold;">&gt;</SPAN></SPAN>
+&nbsp;
+<SPAN style="color: #009900;">&lt;!ELEMENT camera <SPAN style="color: #66cc66;">(</SPAN>clipping?, position?, rotation?, normal?, lookTarget?, trackTarget?, userDataReference?<SPAN style="color: #66cc66;">)</SPAN><SPAN style="color: #000000; font-weight: bold;">&gt;</SPAN></SPAN>
+<SPAN style="color: #009900;">&lt;!ATTLIST camera</SPAN>
+<SPAN style="color: #009900;">    name            CDATA    #IMPLIED</SPAN>
+<SPAN style="color: #009900;">    id                ID        #IMPLIED</SPAN>
+<SPAN style="color: #009900;">    fov                CDATA    #IMPLIED</SPAN>
+<SPAN style="color: #009900;">    aspectRatio        CDATA    #IMPLIED</SPAN>
+<SPAN style="color: #009900;">    projectionType    <SPAN style="color: #66cc66;">(</SPAN>perspective | orthographic<SPAN style="color: #66cc66;">)</SPAN>    <SPAN style="color: #ff0000;">"perspective"</SPAN></SPAN>
+<SPAN style="color: #009900;"><SPAN style="color: #000000; font-weight: bold;">&gt;</SPAN></SPAN>
+&nbsp;
+<SPAN style="color: #009900;">&lt;!ELEMENT trackTarget <SPAN style="color: #66cc66;">(</SPAN>localDirection?, offset?<SPAN style="color: #66cc66;">)</SPAN><SPAN style="color: #000000; font-weight: bold;">&gt;</SPAN></SPAN>
+<SPAN style="color: #009900;">&lt;!ATTLIST trackTarget</SPAN>
+<SPAN style="color: #009900;">    nodeName    CDATA    #REQUIRED</SPAN>
+<SPAN style="color: #009900;"><SPAN style="color: #000000; font-weight: bold;">&gt;</SPAN></SPAN>
+&nbsp;
+<SPAN style="color: #009900;">&lt;!ELEMENT lookTarget <SPAN style="color: #66cc66;">(</SPAN>position?, localDirection?<SPAN style="color: #66cc66;">)</SPAN><SPAN style="color: #000000; font-weight: bold;">&gt;</SPAN></SPAN>
+<SPAN style="color: #009900;">&lt;!ATTLIST lookTarget</SPAN>
+<SPAN style="color: #009900;">    nodeName    CDATA    #IMPLIED</SPAN>
+<SPAN style="color: #009900;">    relativeTo    <SPAN style="color: #66cc66;">(</SPAN>local | parent | world<SPAN style="color: #66cc66;">)</SPAN></SPAN>
+<SPAN style="color: #009900;"><SPAN style="color: #000000; font-weight: bold;">&gt;</SPAN></SPAN>
+&nbsp;
+<SPAN style="color: #009900;">&lt;!ELEMENT lightAttenuation EMPTY<SPAN style="color: #000000; font-weight: bold;">&gt;</SPAN></SPAN>
+<SPAN style="color: #009900;">&lt;!ATTLIST lightAttenuation</SPAN>
+<SPAN style="color: #009900;">    range        CDATA    #IMPLIED</SPAN>
+<SPAN style="color: #009900;">    constant    CDATA    #IMPLIED</SPAN>
+<SPAN style="color: #009900;">    linear        CDATA    #IMPLIED</SPAN>
+<SPAN style="color: #009900;">    quadratic    CDATA    #IMPLIED</SPAN>
+<SPAN style="color: #009900;"><SPAN style="color: #000000; font-weight: bold;">&gt;</SPAN></SPAN>
+&nbsp;
+<SPAN style="color: #009900;">&lt;!ELEMENT lightRange EMPTY<SPAN style="color: #000000; font-weight: bold;">&gt;</SPAN></SPAN>
+<SPAN style="color: #009900;">&lt;!ATTLIST lightRange</SPAN>
+<SPAN style="color: #009900;">    inner    CDATA    #REQUIRED</SPAN>
+<SPAN style="color: #009900;">    outer    CDATA    #REQUIRED</SPAN>
+<SPAN style="color: #009900;">    falloff CDATA    #REQUIRED</SPAN>
+<SPAN style="color: #009900;"><SPAN style="color: #000000; font-weight: bold;">&gt;</SPAN></SPAN>
+&nbsp;
+<SPAN style="color: #009900;">&lt;!ELEMENT entity <SPAN style="color: #66cc66;">(</SPAN>vertexBuffer?, indexBuffer?, userDataReference?<SPAN style="color: #66cc66;">)</SPAN><SPAN style="color: #000000; font-weight: bold;">&gt;</SPAN></SPAN>
+<SPAN style="color: #009900;">&lt;!ATTLIST entity</SPAN>
+<SPAN style="color: #009900;">    name            CDATA    #IMPLIED</SPAN>
+<SPAN style="color: #009900;">    id                ID        #IMPLIED</SPAN>
+<SPAN style="color: #009900;">    meshFile        CDATA    #REQUIRED</SPAN>
+<SPAN style="color: #009900;">    materialFile    CDATA    #IMPLIED</SPAN>
+<SPAN style="color: #009900;">    static            <SPAN style="color: #66cc66;">(</SPAN>true | false<SPAN style="color: #66cc66;">)</SPAN> <SPAN style="color: #ff0000;">"false"</SPAN></SPAN>
+<SPAN style="color: #009900;">    castShadows        <SPAN style="color: #66cc66;">(</SPAN>true | false<SPAN style="color: #66cc66;">)</SPAN> <SPAN style="color: #ff0000;">"true"</SPAN></SPAN>
+<SPAN style="color: #009900;"><SPAN style="color: #000000; font-weight: bold;">&gt;</SPAN></SPAN>
+&nbsp;
+<SPAN style="color: #009900;">&lt;!ELEMENT environment <SPAN style="color: #66cc66;">(</SPAN>fog?, skyBox?, skyDome?, skyPlane?, clipping?, colourAmbient?, colourBackground?, userDataReference?<SPAN style="color: #66cc66;">)</SPAN><SPAN style="color: #000000; font-weight: bold;">&gt;</SPAN></SPAN>
+&nbsp;
+<SPAN style="color: #009900;">&lt;!ELEMENT clipping EMPTY<SPAN style="color: #000000; font-weight: bold;">&gt;</SPAN></SPAN>
+<SPAN style="color: #009900;">&lt;!ATTLIST clipping</SPAN>
+<SPAN style="color: #009900;">    near    CDATA #REQUIRED</SPAN>
+<SPAN style="color: #009900;">    far        CDATA #REQUIRED</SPAN>
+<SPAN style="color: #009900;"><SPAN style="color: #000000; font-weight: bold;">&gt;</SPAN></SPAN>
+&nbsp;
+<SPAN style="color: #009900;">&lt;!ELEMENT fog <SPAN style="color: #66cc66;">(</SPAN>colourDiffuse?<SPAN style="color: #66cc66;">)</SPAN><SPAN style="color: #000000; font-weight: bold;">&gt;</SPAN></SPAN>
+<SPAN style="color: #009900;">&lt;!ATTLIST fog</SPAN>
+<SPAN style="color: #009900;">    expDensity    CDATA    #DEFAULT    <SPAN style="color: #ff0000;">"0.001"</SPAN></SPAN>
+<SPAN style="color: #009900;">    linearStart CDATA    #DEFAULT    <SPAN style="color: #ff0000;">"0.0"</SPAN></SPAN>
+<SPAN style="color: #009900;">    linearEnd    CDATA    #DEFAULT    <SPAN style="color: #ff0000;">"1.0"</SPAN></SPAN>
+<SPAN style="color: #009900;">    mode        <SPAN style="color: #66cc66;">(</SPAN>none | exp | exp2 | linear<SPAN style="color: #66cc66;">)</SPAN> <SPAN style="color: #ff0000;">"none"</SPAN></SPAN>
+<SPAN style="color: #009900;"><SPAN style="color: #000000; font-weight: bold;">&gt;</SPAN></SPAN>
+&nbsp;
+<SPAN style="color: #009900;">&lt;!ELEMENT skyBox <SPAN style="color: #66cc66;">(</SPAN>rotation?<SPAN style="color: #66cc66;">)</SPAN><SPAN style="color: #000000; font-weight: bold;">&gt;</SPAN></SPAN>
+<SPAN style="color: #009900;">&lt;!ATTLIST skyBox</SPAN>
+<SPAN style="color: #009900;">    material    CDATA #REQUIRED</SPAN>
+<SPAN style="color: #009900;">    distance    CDATA #DEFAULT    <SPAN style="color: #ff0000;">"5000"</SPAN></SPAN>
+<SPAN style="color: #009900;">    drawFirst    <SPAN style="color: #66cc66;">(</SPAN>true | false<SPAN style="color: #66cc66;">)</SPAN>    <SPAN style="color: #ff0000;">"true"</SPAN></SPAN>
+<SPAN style="color: #009900;"><SPAN style="color: #000000; font-weight: bold;">&gt;</SPAN></SPAN>
+&nbsp;
+<SPAN style="color: #009900;">&lt;!ELEMENT skyDome <SPAN style="color: #66cc66;">(</SPAN>rotation?<SPAN style="color: #66cc66;">)</SPAN><SPAN style="color: #000000; font-weight: bold;">&gt;</SPAN></SPAN>
+<SPAN style="color: #009900;">&lt;!ATTLIST skyDome</SPAN>
+<SPAN style="color: #009900;">    material    CDATA #REQUIRED</SPAN>
+<SPAN style="color: #009900;">    curvature    CDATA #DEFAULT    <SPAN style="color: #ff0000;">"10"</SPAN></SPAN>
+<SPAN style="color: #009900;">    tiling        CDATA #DEFAULT    <SPAN style="color: #ff0000;">"8"</SPAN></SPAN>
+<SPAN style="color: #009900;">    distance    CDATA #DEFAULT    <SPAN style="color: #ff0000;">"4000"</SPAN></SPAN>
+<SPAN style="color: #009900;">    drawFirst    <SPAN style="color: #66cc66;">(</SPAN>true | false<SPAN style="color: #66cc66;">)</SPAN> <SPAN style="color: #ff0000;">"true"</SPAN></SPAN>
+<SPAN style="color: #009900;"><SPAN style="color: #000000; font-weight: bold;">&gt;</SPAN></SPAN>
+&nbsp;
+<SPAN style="color: #009900;">&lt;!ELEMENT skyPlane EMPTY<SPAN style="color: #000000; font-weight: bold;">&gt;</SPAN></SPAN>
+<SPAN style="color: #009900;">&lt;!ATTLIST skyPlane</SPAN>
+<SPAN style="color: #009900;">    material    CDATA    #REQUIRED</SPAN>
+<SPAN style="color: #009900;">    planeX        CDATA    #DEFAULT    <SPAN style="color: #ff0000;">"0"</SPAN></SPAN>
+<SPAN style="color: #009900;">    planeY        CDATA    #DEFAULT    <SPAN style="color: #ff0000;">"-1"</SPAN></SPAN>
+<SPAN style="color: #009900;">    planeZ        CDATA    #DEFAULT    <SPAN style="color: #ff0000;">"0"</SPAN></SPAN>
+<SPAN style="color: #009900;">    planeD        CDATA    #DEFAULT    <SPAN style="color: #ff0000;">"5000"</SPAN></SPAN>
+<SPAN style="color: #009900;">    scale        CDATA    #DEFAULT    <SPAN style="color: #ff0000;">"1000"</SPAN></SPAN>
+<SPAN style="color: #009900;">    bow            CDATA    #DEFAULT    <SPAN style="color: #ff0000;">"0"</SPAN> </SPAN>
+<SPAN style="color: #009900;">    tiling        CDATA    #DEFAULT    <SPAN style="color: #ff0000;">"10"</SPAN></SPAN>
+<SPAN style="color: #009900;">    drawFirst    <SPAN style="color: #66cc66;">(</SPAN>true | false<SPAN style="color: #66cc66;">)</SPAN>        <SPAN style="color: #ff0000;">"true"</SPAN></SPAN>
+<SPAN style="color: #009900;"><SPAN style="color: #000000; font-weight: bold;">&gt;</SPAN></SPAN>
+&nbsp;
+<SPAN style="color: #009900;">&lt;!ELEMENT billboardSet <SPAN style="color: #66cc66;">(</SPAN>billboard*<SPAN style="color: #66cc66;">)</SPAN><SPAN style="color: #000000; font-weight: bold;">&gt;</SPAN></SPAN>
+<SPAN style="color: #009900;">&lt;!ATTLIST billboardSet</SPAN>
+<SPAN style="color: #009900;">    name        CDATA    #REQUIRED   </SPAN>
+<SPAN style="color: #009900;">    material    CDATA    #REQUIRED</SPAN>
+<SPAN style="color: #009900;">    id            ID        #IMPLIED</SPAN>
+<SPAN style="color: #009900;">    width        CDATA    #DEFAULT    <SPAN style="color: #ff0000;">"10"</SPAN></SPAN>
+<SPAN style="color: #009900;">    height        CDATA    #DEFAULT    <SPAN style="color: #ff0000;">"10"</SPAN></SPAN>
+<SPAN style="color: #009900;">    type        <SPAN style="color: #66cc66;">(</SPAN>orientedCommon | orientedSelf | point<SPAN style="color: #66cc66;">)</SPAN> <SPAN style="color: #ff0000;">"point"</SPAN></SPAN>
+<SPAN style="color: #009900;">    origin        <SPAN style="color: #66cc66;">(</SPAN>bottomLeft | bottomCenter | bottomRight | left | center | right | topLeft | topCenter | topRight<SPAN style="color: #66cc66;">)</SPAN> <SPAN style="color: #ff0000;">"center"</SPAN></SPAN>
+<SPAN style="color: #009900;"><SPAN style="color: #000000; font-weight: bold;">&gt;</SPAN></SPAN>
+&nbsp;
+<SPAN style="color: #009900;">&lt;!ELEMENT billboard <SPAN style="color: #66cc66;">(</SPAN>position?, rotation?, colourDiffuse?<SPAN style="color: #66cc66;">)</SPAN><SPAN style="color: #000000; font-weight: bold;">&gt;</SPAN></SPAN>
+<SPAN style="color: #009900;">&lt;!ATTLIST billboard</SPAN>
+<SPAN style="color: #009900;">    id ID #IMPLIED</SPAN>
+<SPAN style="color: #009900;">    width CDATA #IMPLIED</SPAN>
+<SPAN style="color: #009900;">    height CDATA #IMPLIED</SPAN>
+<SPAN style="color: #009900;"><SPAN style="color: #000000; font-weight: bold;">&gt;</SPAN></SPAN>
+&nbsp;
+<SPAN style="color: #009900;">&lt;!ELEMENT plane <SPAN style="color: #66cc66;">(</SPAN>normal, upVector?, vertexBuffer?, indexBuffer?<SPAN style="color: #66cc66;">)</SPAN><SPAN style="color: #000000; font-weight: bold;">&gt;</SPAN></SPAN>
+<SPAN style="color: #009900;">&lt;!ATTLIST plane</SPAN>
+<SPAN style="color: #009900;">    name            CDATA    #REQUIRED</SPAN>
+<SPAN style="color: #009900;">    id                ID        #IMPLIED</SPAN>
+<SPAN style="color: #009900;">    distance        CDATA    #REQUIRED</SPAN>
+<SPAN style="color: #009900;">    width            CDATA    #REQUIRED</SPAN>
+<SPAN style="color: #009900;">    height            CDATA    #REQUIRED</SPAN>
+<SPAN style="color: #009900;">    xSegments        CDATA    #DEFAULT    <SPAN style="color: #ff0000;">"1"</SPAN></SPAN>
+<SPAN style="color: #009900;">    ySegments        CDATA    #DEFAULT    <SPAN style="color: #ff0000;">"1"</SPAN></SPAN>
+<SPAN style="color: #009900;">    numTexCoordSets    CDATA    #DEFAULT    <SPAN style="color: #ff0000;">"1"</SPAN></SPAN>
+<SPAN style="color: #009900;">    uTile            CDATA    #DEFAULT    <SPAN style="color: #ff0000;">"1"</SPAN></SPAN>
+<SPAN style="color: #009900;">    vTile            CDATA    #DEFAULT    <SPAN style="color: #ff0000;">"1"</SPAN></SPAN>
+<SPAN style="color: #009900;">    material        CDATA    #IMPLIED</SPAN>
+<SPAN style="color: #009900;">    normals            <SPAN style="color: #66cc66;">(</SPAN>true | false<SPAN style="color: #66cc66;">)</SPAN>        <SPAN style="color: #ff0000;">"true"</SPAN></SPAN>
+<SPAN style="color: #009900;"><SPAN style="color: #000000; font-weight: bold;">&gt;</SPAN></SPAN>
+&nbsp;
+<SPAN style="color: #009900;">&lt;!ELEMENT vertexBuffer EMPTY<SPAN style="color: #000000; font-weight: bold;">&gt;</SPAN></SPAN>
+<SPAN style="color: #009900;">&lt;!ATTLIST vertexBuffer</SPAN>
+<SPAN style="color: #009900;">    usage        <SPAN style="color: #66cc66;">(</SPAN>static | dynamic | writeOnly | staticWriteOnly | dynamicWriteOnly<SPAN style="color: #66cc66;">)</SPAN>    <SPAN style="color: #ff0000;">"staticWriteOnly"</SPAN></SPAN>
+<SPAN style="color: #009900;">    useShadow    <SPAN style="color: #66cc66;">(</SPAN>true | false<SPAN style="color: #66cc66;">)</SPAN>    <SPAN style="color: #ff0000;">"true"</SPAN></SPAN>
+<SPAN style="color: #009900;"><SPAN style="color: #000000; font-weight: bold;">&gt;</SPAN></SPAN>
+&nbsp;
+<SPAN style="color: #009900;">&lt;!ELEMENT indexBuffer EMPTY<SPAN style="color: #000000; font-weight: bold;">&gt;</SPAN></SPAN>
+<SPAN style="color: #009900;">&lt;!ATTLIST indexBuffer</SPAN>
+<SPAN style="color: #009900;">    usage        <SPAN style="color: #66cc66;">(</SPAN>static | dynamic | writeOnly | staticWriteOnly | dynamicWriteOnly<SPAN style="color: #66cc66;">)</SPAN>    <SPAN style="color: #ff0000;">"staticWriteOnly"</SPAN></SPAN>
+<SPAN style="color: #009900;">    useShadow    <SPAN style="color: #66cc66;">(</SPAN>true | false<SPAN style="color: #66cc66;">)</SPAN>    <SPAN style="color: #ff0000;">"true"</SPAN></SPAN>
+<SPAN style="color: #009900;"><SPAN style="color: #000000; font-weight: bold;">&gt;</SPAN></SPAN>
+&nbsp;
+<SPAN style="color: #009900;">&lt;!ELEMENT externals <SPAN style="color: #66cc66;">(</SPAN>item*<SPAN style="color: #66cc66;">)</SPAN><SPAN style="color: #000000; font-weight: bold;">&gt;</SPAN></SPAN>
+&nbsp;
+<SPAN style="color: #009900;">&lt;!ELEMENT item <SPAN style="color: #66cc66;">(</SPAN>file<SPAN style="color: #66cc66;">)</SPAN><SPAN style="color: #000000; font-weight: bold;">&gt;</SPAN></SPAN>
+<SPAN style="color: #009900;">&lt;!ATTLIST item</SPAN>
+<SPAN style="color: #009900;">    type CDATA #REQUIRED</SPAN>
+<SPAN style="color: #009900;"><SPAN style="color: #000000; font-weight: bold;">&gt;</SPAN></SPAN>
+&nbsp;
+<SPAN style="color: #009900;">&lt;!ELEMENT file EMPTY<SPAN style="color: #000000; font-weight: bold;">&gt;</SPAN></SPAN>
+<SPAN style="color: #009900;">&lt;!ATTLIST file</SPAN>
+<SPAN style="color: #009900;">    name CDATA #REQUIRED</SPAN>
+<SPAN style="color: #009900;"><SPAN style="color: #000000; font-weight: bold;">&gt;</SPAN></SPAN>
+&nbsp;
+<SPAN style="color: #009900;">&lt;!ELEMENT position EMPTY<SPAN style="color: #000000; font-weight: bold;">&gt;</SPAN></SPAN>
+<SPAN style="color: #009900;">&lt;!ATTLIST position</SPAN>
+<SPAN style="color: #009900;">    x CDATA #REQUIRED</SPAN>
+<SPAN style="color: #009900;">    y CDATA #REQUIRED</SPAN>
+<SPAN style="color: #009900;">    z CDATA #REQUIRED</SPAN>
+<SPAN style="color: #009900;"><SPAN style="color: #000000; font-weight: bold;">&gt;</SPAN></SPAN>
+&nbsp;
+<SPAN style="color: #009900;">&lt;!ELEMENT rotation EMPTY<SPAN style="color: #000000; font-weight: bold;">&gt;</SPAN></SPAN>
+<SPAN style="color: #009900;">&lt;!ATTLIST rotation</SPAN>
+<SPAN style="color: #009900;">    qx        CDATA #IMPLIED</SPAN>
+<SPAN style="color: #009900;">    qy        CDATA #IMPLIED</SPAN>
+<SPAN style="color: #009900;">    qz        CDATA #IMPLIED</SPAN>
+<SPAN style="color: #009900;">    qw        CDATA #IMPLIED</SPAN>
+<SPAN style="color: #009900;">    axisX    CDATA #IMPLIED</SPAN>
+<SPAN style="color: #009900;">    axisY    CDATA #IMPLIED</SPAN>
+<SPAN style="color: #009900;">    axisZ    CDATA #IMPLIED</SPAN>
+<SPAN style="color: #009900;">    angle    CDATA #IMPLIED</SPAN>
+<SPAN style="color: #009900;">    angleX    CDATA #IMPLIED</SPAN>
+<SPAN style="color: #009900;">    angleY    CDATA #IMPLIED</SPAN>
+<SPAN style="color: #009900;">    angleZ    CDATA #IMPLIED</SPAN>
+<SPAN style="color: #009900;"><SPAN style="color: #000000; font-weight: bold;">&gt;</SPAN></SPAN>
+&nbsp;
+<SPAN style="color: #009900;">&lt;!ELEMENT normal EMPTY<SPAN style="color: #000000; font-weight: bold;">&gt;</SPAN></SPAN>
+<SPAN style="color: #009900;">&lt;!ATTLIST normal</SPAN>
+<SPAN style="color: #009900;">    x CDATA #REQUIRED</SPAN>
+<SPAN style="color: #009900;">    y CDATA #REQUIRED</SPAN>
+<SPAN style="color: #009900;">    z CDATA #REQUIRED</SPAN>
+<SPAN style="color: #009900;"><SPAN style="color: #000000; font-weight: bold;">&gt;</SPAN></SPAN>
+&nbsp;
+<SPAN style="color: #009900;">&lt;!ELEMENT upVector EMPTY<SPAN style="color: #000000; font-weight: bold;">&gt;</SPAN></SPAN>
+<SPAN style="color: #009900;">&lt;!ATTLIST upVector</SPAN>
+<SPAN style="color: #009900;">    x CDATA #REQUIRED</SPAN>
+<SPAN style="color: #009900;">    y CDATA #REQUIRED</SPAN>
+<SPAN style="color: #009900;">    z CDATA #REQUIRED</SPAN>
+<SPAN style="color: #009900;"><SPAN style="color: #000000; font-weight: bold;">&gt;</SPAN></SPAN>
+&nbsp;
+<SPAN style="color: #009900;">&lt;!ELEMENT offset EMPTY<SPAN style="color: #000000; font-weight: bold;">&gt;</SPAN></SPAN>
+<SPAN style="color: #009900;">&lt;!ATTLIST offset</SPAN>
+<SPAN style="color: #009900;">    x CDATA #REQUIRED</SPAN>
+<SPAN style="color: #009900;">    y CDATA #REQUIRED</SPAN>
+<SPAN style="color: #009900;">    z CDATA #REQUIRED</SPAN>
+<SPAN style="color: #009900;"><SPAN style="color: #000000; font-weight: bold;">&gt;</SPAN></SPAN>
+&nbsp;
+<SPAN style="color: #009900;">&lt;!ELEMENT localDirection EMPTY<SPAN style="color: #000000; font-weight: bold;">&gt;</SPAN></SPAN>
+<SPAN style="color: #009900;">&lt;!ATTLIST localDirection</SPAN>
+<SPAN style="color: #009900;">    x CDATA #REQUIRED</SPAN>
+<SPAN style="color: #009900;">    y CDATA #REQUIRED</SPAN>
+<SPAN style="color: #009900;">    z CDATA #REQUIRED</SPAN>
+<SPAN style="color: #009900;"><SPAN style="color: #000000; font-weight: bold;">&gt;</SPAN></SPAN>
+&nbsp;
+<SPAN style="color: #009900;">&lt;!ELEMENT scale EMPTY<SPAN style="color: #000000; font-weight: bold;">&gt;</SPAN></SPAN>
+<SPAN style="color: #009900;">&lt;!ATTLIST scale</SPAN>
+<SPAN style="color: #009900;">    x CDATA #REQUIRED</SPAN>
+<SPAN style="color: #009900;">    y CDATA #REQUIRED</SPAN>
+<SPAN style="color: #009900;">    z CDATA #REQUIRED</SPAN>
+<SPAN style="color: #009900;"><SPAN style="color: #000000; font-weight: bold;">&gt;</SPAN></SPAN>
+&nbsp;
+<SPAN style="color: #009900;">&lt;!ELEMENT colourDiffuse EMPTY<SPAN style="color: #000000; font-weight: bold;">&gt;</SPAN></SPAN>
+<SPAN style="color: #009900;">&lt;!ATTLIST colourDiffuse</SPAN>
+<SPAN style="color: #009900;">    r CDATA #REQUIRED</SPAN>
+<SPAN style="color: #009900;">    g CDATA #REQUIRED</SPAN>
+<SPAN style="color: #009900;">    b CDATA #REQUIRED</SPAN>
+<SPAN style="color: #009900;"><SPAN style="color: #000000; font-weight: bold;">&gt;</SPAN></SPAN>
+&nbsp;
+<SPAN style="color: #009900;">&lt;!ELEMENT colourSpecular EMPTY<SPAN style="color: #000000; font-weight: bold;">&gt;</SPAN></SPAN>
+<SPAN style="color: #009900;">&lt;!ATTLIST colourSpecular</SPAN>
+<SPAN style="color: #009900;">    r CDATA #REQUIRED</SPAN>
+<SPAN style="color: #009900;">    g CDATA #REQUIRED</SPAN>
+<SPAN style="color: #009900;">    b CDATA #REQUIRED</SPAN>
+<SPAN style="color: #009900;"><SPAN style="color: #000000; font-weight: bold;">&gt;</SPAN></SPAN>
+&nbsp;
+<SPAN style="color: #009900;">&lt;!ELEMENT colourAmbient EMPTY<SPAN style="color: #000000; font-weight: bold;">&gt;</SPAN></SPAN>
+<SPAN style="color: #009900;">&lt;!ATTLIST colourAmbient</SPAN>
+<SPAN style="color: #009900;">    r CDATA #REQUIRED</SPAN>
+<SPAN style="color: #009900;">    g CDATA #REQUIRED</SPAN>
+<SPAN style="color: #009900;">    b CDATA #REQUIRED</SPAN>
+<SPAN style="color: #009900;"><SPAN style="color: #000000; font-weight: bold;">&gt;</SPAN></SPAN>
+&nbsp;
+<SPAN style="color: #009900;">&lt;!ELEMENT colourBackground EMPTY<SPAN style="color: #000000; font-weight: bold;">&gt;</SPAN></SPAN>
+<SPAN style="color: #009900;">&lt;!ATTLIST colourBackground</SPAN>
+<SPAN style="color: #009900;">    r CDATA #REQUIRED</SPAN>
+<SPAN style="color: #009900;">    g CDATA #REQUIRED</SPAN>
+<SPAN style="color: #009900;">    b CDATA #REQUIRED</SPAN>
+<SPAN style="color: #009900;"><SPAN style="color: #000000; font-weight: bold;">&gt;</SPAN></SPAN>
+&nbsp;
+<SPAN style="color: #009900;">&lt;!ELEMENT userDataReference EMPTY<SPAN style="color: #000000; font-weight: bold;">&gt;</SPAN></SPAN>
+<SPAN style="color: #009900;">&lt;!ATTLIST userDataReference</SPAN>
+<SPAN style="color: #009900;">    id CDATA #REQUIRED</SPAN>
+<SPAN style="color: #009900;"><SPAN style="color: #000000; font-weight: bold;">&gt;</SPAN></SPAN>
+&nbsp;
+<SPAN style="color: #009900;">&lt;!ELEMENT octree <SPAN style="color: #66cc66;">(</SPAN>octnode<SPAN style="color: #66cc66;">)</SPAN><SPAN style="color: #000000; font-weight: bold;">&gt;</SPAN></SPAN>
+<SPAN style="color: #009900;">&lt;!ATTLIST octree</SPAN>
+<SPAN style="color: #009900;">    binFile CDATA #REQUIRED</SPAN>
+<SPAN style="color: #009900;"><SPAN style="color: #000000; font-weight: bold;">&gt;</SPAN></SPAN>
+&nbsp;
+<SPAN style="color: #009900;">&lt;!ELEMENT octNode <SPAN style="color: #66cc66;">(</SPAN>octNode*, octMesh*<SPAN style="color: #66cc66;">)</SPAN><SPAN style="color: #000000; font-weight: bold;">&gt;</SPAN></SPAN>
+<SPAN style="color: #009900;">&lt;!ATTLIST octNode</SPAN>
+<SPAN style="color: #009900;">    px        CDATA #REQUIRED</SPAN>
+<SPAN style="color: #009900;">    py        CDATA #REQUIRED</SPAN>
+<SPAN style="color: #009900;">    pz        CDATA #REQUIRED</SPAN>
+<SPAN style="color: #009900;">    width    CDATA #REQUIRED</SPAN>
+<SPAN style="color: #009900;">    height    CDATA #REQUIRED</SPAN>
+<SPAN style="color: #009900;">    depth    CDATA #REQUIRED</SPAN>
+<SPAN style="color: #009900;"><SPAN style="color: #000000; font-weight: bold;">&gt;</SPAN></SPAN>
+&nbsp;
+<SPAN style="color: #009900;">&lt;!ELEMENT octMesh <SPAN style="color: #66cc66;">(</SPAN>octGeometry, octMaterial<SPAN style="color: #66cc66;">)</SPAN><SPAN style="color: #000000; font-weight: bold;">&gt;</SPAN></SPAN>
+&nbsp;
+<SPAN style="color: #009900;">&lt;!ELEMENT octGeometry EMPTY<SPAN style="color: #000000; font-weight: bold;">&gt;</SPAN></SPAN>
+<SPAN style="color: #009900;">&lt;!ATTLIST octGeometry</SPAN>
+<SPAN style="color: #009900;">    binaryDataOffset    CDATA #REQUIRED</SPAN>
+<SPAN style="color: #009900;">    vertTotal            CDATA #REQUIRED</SPAN>
+<SPAN style="color: #009900;">    triTotal            CDATA #REQUIRED</SPAN>
+<SPAN style="color: #009900;">    normalTotal            CDATA #IMPLIED</SPAN>
+<SPAN style="color: #009900;">    colorTotal            CDATA #IMPLIED</SPAN>
+<SPAN style="color: #009900;">    texSets                CDATA #IMPLIED</SPAN>
+<SPAN style="color: #009900;">    texTotal            CDATA #IMPLIED</SPAN>
+<SPAN style="color: #009900;"><SPAN style="color: #000000; font-weight: bold;">&gt;</SPAN></SPAN>
+&nbsp;
+<SPAN style="color: #009900;">&lt;!ELEMENT octMaterial EMPTY<SPAN style="color: #000000; font-weight: bold;">&gt;</SPAN></SPAN>
+<SPAN style="color: #009900;">&lt;!ATTLIST octMaterial</SPAN>
+<SPAN style="color: #009900;">    name    CDATA #REQUIRED</SPAN>
+<SPAN style="color: #009900;">    texture CDATA #IMPLIED</SPAN>
+<SPAN style="color: #009900;"><SPAN style="color: #000000; font-weight: bold;">&gt;</SPAN></SPAN></PRE>
+<BR></FORM>
+<P></P>
+
+	
+	
+	<HR class="hrwikibottom"> 
+
+	
+	</DIV> 
+
+
+
+
+	<P class="editdate">
+						Contributors to this page: <A class="link titletips" title="User information - Click for more info|&lt;table&gt;&lt;tr&gt;&lt;td&gt;&lt;img border=&#39;0&#39; src=&#39;tiki-show_user_avatar.php?user=jacmoe&#39;  alt=&#39;jacmoe&#39; /&gt;&lt;/td&gt;&lt;td&gt;Jacob Moen&lt;br /&gt;&lt;img src=&#39;img/icons/star_purple.gif&#39; height=&#39;11&#39; width=&#39;11&#39; alt=&#39;60863 points&#39; /&gt;&amp;nbsp;60863&lt;br /&gt;&lt;img src=&#39;img/flags/Denmark.gif&#39; /&gt; Denmark&lt;br /&gt;Last seen on Mon 21 of June, 2010 [05:01 GMT]&lt;br /&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;" href="http://www.ogre3d.org/tikiwiki/tiki-user_information.php?userId=2"><I class="highlightgroup"><B>jacmoe</B></I></A><IMG src="./DotSceneFormat   Ogre Wiki_files/star_purple.gif" height="11" width="11" alt="60863 points">&nbsp;
+			 
+			and
+				<SPAN class="link">OgreWikiBot</SPAN>
+	.
+	<BR>
+	Page last modified on Thursday 29 of April, 2010 12:57:33 GMT by <A class="link titletips" title="User information - Click for more info|&lt;table&gt;&lt;tr&gt;&lt;td&gt;&lt;img border=&#39;0&#39; src=&#39;tiki-show_user_avatar.php?user=jacmoe&#39;  alt=&#39;jacmoe&#39; /&gt;&lt;/td&gt;&lt;td&gt;Jacob Moen&lt;br /&gt;&lt;img src=&#39;img/icons/star_purple.gif&#39; height=&#39;11&#39; width=&#39;11&#39; alt=&#39;60863 points&#39; /&gt;&amp;nbsp;60863&lt;br /&gt;&lt;img src=&#39;img/flags/Denmark.gif&#39; /&gt; Denmark&lt;br /&gt;Last seen on Mon 21 of June, 2010 [05:01 GMT]&lt;br /&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;" href="http://www.ogre3d.org/tikiwiki/tiki-user_information.php?userId=2"><I class="highlightgroup"><B>jacmoe</B></I></A><IMG src="./DotSceneFormat   Ogre Wiki_files/star_purple.gif" height="11" width="11" alt="60863 points">&nbsp;. 
+	
+	
+				</P><HR>
+		The content on this page is licensed under the terms of the <A href="http://www.ogre3d.org/tikiwiki/Creative+Commons+Attribution-ShareAlike+License&copyrightpage=DotSceneFormat">Creative Commons Attribution-ShareAlike License</A>.
+		<BR>As an exception, any source code contributed within the content is released into the <A href="http://www.ogre3d.org/tikiwiki/tiki-index?page=Public%20Domain%20Unlicense">Public Domain</A>.
+	<HR>
+
+	
+	<P></P>
+
+
+
+			
+<DIV class="clearfix" id="page-bar"><SPAN class="button"><A href="http://www.ogre3d.org/tikiwiki/tiki-pagehistory.php?page=DotSceneFormat&source=0">Source</A></SPAN><SPAN class="button"><A href="http://www.ogre3d.org/tikiwiki/tiki-pagehistory.php?page=DotSceneFormat">History</A></SPAN></DIV><A name="attachments"></A>
+
+<A name="attachments"></A>
+
+
+<DIV id="attzone" style="display:none;">
+
+
+
+
+
+
+
+</DIV>
+<A name="comments"></A>
+
+<DIV id="comments">
+	
+<DIV id="comzone" style="display: none;">
+
+
+
+  
+  
+
+
+  
+ 
+
+
+</DIV>
+
+
+</DIV><!-- comzone end -->
+		
+</DIV>
+
+<DIV class="help" id="tikihelp">
+	<DIV class="help_sections ui-tabs ui-widget ui-widget-content ui-corner-all" id="help_sections" style="display:none">
+		<UL class="ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all">
+							<LI class="ui-state-default ui-corner-top ui-tabs-selected ui-state-active">
+					<A href="http://www.ogre3d.org/tikiwiki/DotSceneFormat#advanced_search_help">
+						Advanced Search Help
+					</A>
+				</LI>
+					</UL>
+					<DIV id="advanced_search_help" class="ui-tabs-panel ui-widget-content ui-corner-bottom">
+										
+<H3>Search Help</H3><DIV class="help_section"><H4>Default search behavior</H4><P>By default, all search terms are <EM>optional</EM>.Objects that contain the terms are rated higher in the results. For example, <STRONG>wiki forum</STRONG> will find:</P><UL><LI>objects that include the term <STRONG>wiki</STRONG></LI><LI>objects that include the term <STRONG>forum</STRONG></LI><LI>objects that include both terms</LI></UL><H4>Requiring terms</H4><P>Add a plus sign ( + ) before a term to indicate that the term <EM>must</EM> appear in results.</P><H4 id="excluding">Excluding terms</H4><P>Add a minus sign ( - ) before a term to indicate that the term <EM>must not</EM> appear results.To reduce a term's value without completely excluding it, <A href="http://www.ogre3d.org/tikiwiki/DotSceneFormat#reducing" title="Reducing a term&#39;s value">use a tilde</A>.</P><H4>Grouping terms</H4><P>Use parenthesis ( ) to group terms into subexpressions.</P><H4>Finding phrases</H4><P>Use double quotes ( " ) around a phrase to find terms in the exact order, exactly as typed.</P><H4>Using wildcards</H4><P>Add an asterisk ( * ) after a term to find objects that include the root word. For example, <STRONG>run*</STRONG> will find:</P><UL><LI>objects that include the term <STRONG>run</STRONG></LI><LI>objects that include the term <STRONG>runner</STRONG></LI><LI>objects that include the term <STRONG>running</STRONG></LI></UL><H4 id="reducing">Reducing a term's value</H4><P>Add a tilde ( ~ ) before a term to reduce its value indicate to the ranking of the results.Objects that contain the term will appear lower than other objects (unlike the <A href="http://www.ogre3d.org/tikiwiki/DotSceneFormat#excluding" title="Excluding terms">minus sign</A>which will completely exclude a term).</P><H4>Changing relevance value</H4><P>Add a less than ( &lt; ) or greater than ( &gt; ) sign before a term to change the term's contribution to the overall relevance value assigned to a row.</P></DIV>		
+		
+			</DIV>
+			</DIV>
+	</DIV>
+							</DIV><A href="javascript:toggle('wpfade-1')">Click this link to toggle the Report Page Issue Form</A><DIV id="wpfade-1" style="display:none"><P><B>You do not have permission to insert an item</B>
+</P>
+</DIV>
+</DIV>						</DIV>
+					</DIV>
+
+					<HR class="hidden">
+					</DIV>
+					<DIV class="clearfix" id="col3" style="display: table-cell;">
+					<H2 class="hidden">Sidebar</H2>
+					<DIV class="content">
+							
+
+
+
+<DIV class="box-shadow">	<DIV class="box box-search_box">
+			<H3 class="box-title clearfix">
+						<SPAN class="moduletitle">Search box</SPAN>
+							<SPAN class="moduleflip" id="moduleflip-search_boxr1">
+				<A title="Toggle module contents" class="flipmodtitle" href="javascript:icntoggle('mod-search_boxr1','module.png');">
+										<IMG src="./DotSceneFormat   Ogre Wiki_files/module.png" alt="[toggle]" width="16" height="16" name="icnmod-search_boxr1" class="flipmodimage" border="0" title="[toggle]">
+				</A>
+			</SPAN>
+							<!--[if IE]><br class="clear" style="height: 1px !important" /><![endif]--></H3>
+			<DIV id="mod-search_boxr1" style="display: block" class="clearfix box-data">
+    <FORM class="forms" id="search-module-form" method="get" action="http://www.ogre3d.org/tikiwiki/tiki-searchresults.php">
+    <INPUT id="fuser" name="highlight" size="14" type="text" accesskey="s"> 
+	
+ 			<INPUT type="hidden" name="where" value="wikis">
+    			<BR><LABEL for="boolean">Advanced search:<INPUT type="checkbox" name="boolean" checked="checked"></LABEL>
+
+				<A onclick="openEditHelp();return false;" href="http://www.ogre3d.org/tikiwiki/tiki-index.php?page=DotSceneFormat"><IMG src="./DotSceneFormat   Ogre Wiki_files/help.png" alt="Click for Help" width="16" height="16" border="0" title="Click for Help" class="icon"></A><BR>
+	    <INPUT type="submit" class="wikiaction" name="search" value="Go"> 
+    </FORM>
+
+
+
+		</DIV>
+		<DIV class="box-footer">
+
+		</DIV>
+	</DIV>
+</DIV>
+					
+
+
+
+<DIV class="box-shadow">	<DIV class="box box-last_modif_pages">
+			<H3 class="box-title clearfix">
+						<SPAN class="moduletitle">Last changes</SPAN>
+							<SPAN class="moduleflip" id="moduleflip-last_modif_pagesr6">
+				<A title="Toggle module contents" class="flipmodtitle" href="javascript:icntoggle('mod-last_modif_pagesr6','module.png');">
+										<IMG src="./DotSceneFormat   Ogre Wiki_files/module.png" alt="[toggle]" width="16" height="16" name="icnmod-last_modif_pagesr6" class="flipmodimage" border="0" title="[toggle]">
+				</A>
+			</SPAN>
+							<!--[if IE]><br class="clear" style="height: 1px !important" /><![endif]--></H3>
+			<DIV id="mod-last_modif_pagesr6" style="display: block" class="clearfix box-data">
+<OL>			<LI>
+			<A class="linkmodule" href="http://www.ogre3d.org/tikiwiki/Basic+Tutorial+1" title="Mon 01 of Nov., 2010 11:31 GMT, by piiichan">
+							Basic Tutorial 1
+						</A>
+		</LI>
+			<LI>
+			<A class="linkmodule" href="http://www.ogre3d.org/tikiwiki/DCC+Tools" title="Mon 01 of Nov., 2010 10:58 GMT, by piiichan">
+							DCC Tools
+						</A>
+		</LI>
+			<LI>
+			<A class="linkmodule" href="http://www.ogre3d.org/tikiwiki/Tools%3A+Blender" title="Mon 01 of Nov., 2010 10:30 GMT, by piiichan">
+							Tools: Blender
+						</A>
+		</LI>
+			<LI>
+			<A class="linkmodule" href="http://www.ogre3d.org/tikiwiki/Explosion" title="Fri 29 of Oct., 2010 15:41 GMT, by petrocket">
+							Explosion
+						</A>
+		</LI>
+			<LI>
+			<A class="linkmodule" href="http://www.ogre3d.org/tikiwiki/BasicTutorial4Source" title="Fri 29 of Oct., 2010 10:34 GMT, by mkoijn">
+							BasicTutorial4Source
+						</A>
+		</LI>
+			<LI>
+			<A class="linkmodule" href="http://www.ogre3d.org/tikiwiki/ByatisNotes" title="Thu 28 of Oct., 2010 20:27 GMT, by assaf raman">
+							ByatisNotes
+						</A>
+		</LI>
+			<LI>
+			<A class="linkmodule" href="http://www.ogre3d.org/tikiwiki/MyGUI+use+delegates" title="Wed 27 of Oct., 2010 20:49 GMT, by Altren">
+							MyGUI use delegates
+						</A>
+		</LI>
+			<LI>
+			<A class="linkmodule" href="http://www.ogre3d.org/tikiwiki/Per+renderable+transparency" title="Wed 27 of Oct., 2010 18:25 GMT, by Altren">
+							Per renderable transparency
+						</A>
+		</LI>
+			<LI>
+			<A class="linkmodule" href="http://www.ogre3d.org/tikiwiki/Setting+Up+An+Application+-+Visual+Studio" title="Wed 27 of Oct., 2010 14:48 GMT, by spacegaier">
+							Setting Up An Application - Visual Studio
+						</A>
+		</LI>
+			<LI>
+			<A class="linkmodule" href="http://www.ogre3d.org/tikiwiki/CEGUI+Mesh+Viewer" title="Wed 27 of Oct., 2010 14:41 GMT, by spacegaier">
+							CEGUI Mesh Viewer
+						</A>
+		</LI>
+	</OL><A class="linkmodule" style="margin-left: 20px" href="http://www.ogre3d.org/tikiwiki/tiki-lastchanges.php">...more</A>
+
+
+
+		</DIV>
+		<DIV class="box-footer">
+
+		</DIV>
+	</DIV>
+</DIV>
+					
+
+
+
+<DIV class="box-shadow">	<DIV class="box box-who_is_there">
+			<H3 class="box-title clearfix">
+						<SPAN class="moduletitle">Online users</SPAN>
+							<SPAN class="moduleflip" id="moduleflip-who_is_therer7">
+				<A title="Toggle module contents" class="flipmodtitle" href="javascript:icntoggle('mod-who_is_therer7','module.png');">
+										<IMG src="./DotSceneFormat   Ogre Wiki_files/module.png" alt="[toggle]" width="16" height="16" name="icnmod-who_is_therer7" class="flipmodimage" border="0" title="[toggle]">
+				</A>
+			</SPAN>
+							<!--[if IE]><br class="clear" style="height: 1px !important" /><![endif]--></H3>
+			<DIV id="mod-who_is_therer7" style="display: block" class="clearfix box-data">
+<DIV>
+69 
+online users
+</DIV>
+
+<A class="linkmodule titletips" title="User information - Click for more info|&lt;img src=&#39;img/icons/star_grey.gif&#39; height=&#39;11&#39; width=&#39;11&#39; alt=&#39;1 points&#39; /&gt;&amp;nbsp;1&lt;br /&gt;Last seen on Thu 14 of Oct., 2010 [10:54 GMT]&lt;br /&gt;(idle for 1 seconds)&lt;br /&gt;" href="http://www.ogre3d.org/tikiwiki/tiki-user_information.php?userId=314">Rubinsson</A><IMG src="./DotSceneFormat   Ogre Wiki_files/star_grey.gif" height="11" width="11" alt="1 points">&nbsp;
+<BR>
+
+
+
+		</DIV>
+		<DIV class="box-footer">
+
+		</DIV>
+	</DIV>
+</DIV>
+							</DIV>
+				</DIV>
+				<BR style="clear:both">
+			<!--[if IE 7]><br style="clear:both; height: 0" /><![endif]-->
+			</DIV></DIV>
+				<DIV id="footer-shadow"><DIV id="footer">
+				<DIV class="footerbgtrap">
+					<DIV class="content">
+		
+	<DIV id="power_icons">
+	<BR>
+<A href="http://www.ogre3d.org/"><IMG src="./DotSceneFormat   Ogre Wiki_files/ogre_logo.png" border="0" alt="Ogre3d.org" title="Go to Ogre3d.org"></A>
+<BR><BR>
+<SPAN id="poweredby">Powered by</SPAN> <A href="http://info.tikiwiki.org/" title="&copy; 2002&ndash;2010 The TikiWiki Community">Tiki Wiki CMS Groupware</A>
+</DIV>
+
+
+ 					</DIV>
+				</DIV>
+			</DIV></DIV>	
+		</DIV></DIV>	</DIV> 
+
+
+
+	
+	
+	
+		
+<!-- Put JS at the end -->
+	
+<!-- jsfile external -->
+<!-- jsfile dynamic -->
+<SCRIPT type="text/javascript" src="./DotSceneFormat   Ogre Wiki_files/tiki-jsplugin.php"></SCRIPT>
+<!-- jsfile 0 -->
+<SCRIPT type="text/javascript" src="./DotSceneFormat   Ogre Wiki_files/minified_2e4935b03028477e881b0f264b0d8517.js"></SCRIPT>
+
+
+	
+<SCRIPT type="text/javascript">
+<!--//--><![CDATA[//><!--
+// js 0 
+var tiki_cookie_jar=new Array();
+
+var openEditHelp = function() {
+	var opts, edithelp_pos = getCookie("edithelp_position");
+	opts = { width: 460, height: 500, title: "Help", autoOpen: false, beforeclose: function(event, ui) {
+		var off = $jq(this).offsetParent().offset();
+   		setCookie("edithelp_position", parseInt(off.left) + "," + parseInt(off.top) + "," + $jq(this).offsetParent().width() + "," + $jq(this).offsetParent().height());
+	}}
+	if (edithelp_pos) {edithelp_pos = edithelp_pos.split(",");}
+	if (edithelp_pos && edithelp_pos.length) {
+		opts["position"] = [parseInt(edithelp_pos[0]), parseInt(edithelp_pos[1])];
+		opts["width"] = parseInt(edithelp_pos[2]);
+		opts["height"] = parseInt(edithelp_pos[3]);
+	}
+	$jq("#help_sections").dialog("destroy").dialog(opts).dialog("open");
+	
+};
+// js 100 
+
+// JS Object to hold prefs for jq
+var jqueryTiki = new Object();
+jqueryTiki.ui = true;
+jqueryTiki.ui_theme = "smoothness";
+jqueryTiki.tooltips = true;
+jqueryTiki.autocomplete = true;
+jqueryTiki.superfish = true;
+jqueryTiki.replection = false;
+jqueryTiki.tablesorter = true;
+jqueryTiki.colorbox = true;
+jqueryTiki.cboxCurrent = "{current} / {total}";
+jqueryTiki.sheet = true;
+jqueryTiki.carousel = false;
+jqueryTiki.jqs5 = false;
+
+jqueryTiki.effect = "";				// Default effect
+jqueryTiki.effect_direction = "vertical";	// "horizontal" | "vertical" etc
+jqueryTiki.effect_speed = 400;	// "slow" | "normal" | "fast" | milliseconds (int) ]
+jqueryTiki.effect_tabs = "slide";		// Different effect for tabs
+jqueryTiki.effect_tabs_direction = "vertical";
+jqueryTiki.effect_tabs_speed = "fast";
+
+
+//--><!]]>
+</SCRIPT>
+<SCRIPT type="text/javascript">
+<!--//--><![CDATA[//><!--
+$jq(document).ready(function(){
+// jq_onready 0 
+phplayersmenu_loaded = 1;
+
+		var js_anonymous_name = getCookie('anonymous_name');
+		if (js_anonymous_name) $jq('#anonymous_name').val( js_anonymous_name );
+	
+ $jq(function() {$jq("#help_sections").tabs({});}); 
+});
+//--><!]]>
+</SCRIPT>
+
+	
+</BODY></HTML>
