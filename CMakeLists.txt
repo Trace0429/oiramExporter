@@ -16,7 +16,10 @@ foreach( OUTPUTCONFIG ${CMAKE_CONFIGURATION_TYPES} )
     set( CMAKE_ARCHIVE_OUTPUT_DIRECTORY_${OUTPUTCONFIG} ${PROJECT_BINARY_DIR}/lib )
 endforeach( OUTPUTCONFIG CMAKE_CONFIGURATION_TYPES )
 
-#add_subdirectory(ThirdParty/FreeImage)
+add_subdirectory(dependencies/FreeImage)
 
-#add_dependencies(raytrace FreeImage)
 add_subdirectory(OgreComponent)
+add_subdirectory(oiramImpl)
+
+add_dependencies(oiramImpl FreeImage)
+add_dependencies(oiramImpl OgreComponent)
