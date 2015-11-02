@@ -29,10 +29,11 @@ SET(SRC_FILES
 SOURCE_GROUP("include" FILES ${INC})
 SOURCE_GROUP("src" FILES ${SRC})
 
-include_directories(../dependencies/OGRE/include)
-include_directories(../dependencies)
 include_directories($ENV{DXSDK_DIR}/include)
 include_directories(../${MAX_INC})
+include_directories(../dependencies)
+include_directories(../dependencies/OGRE/include)
+include_directories(../dependencies/nvidia-texture-tools/src)
 
 add_definitions(-DNO_VIEW_EXTENDED)
 

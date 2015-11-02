@@ -21,9 +21,11 @@ set(MAX_INC dependencies/MaxSDK/2014/include)
 set(MAX_LIB dependencies/MaxSDK/2014/lib/x64/Release)
 
 add_subdirectory(dependencies/FreeImage)
+add_subdirectory(dependencies/nvidia-texture-tools)
 
 add_subdirectory(OgreComponent)
 add_subdirectory(oiramImpl)
 
 add_dependencies(oiramImpl FreeImage)
 add_dependencies(oiramImpl OgreComponent)
+add_dependencies(oiramImpl nvtt)
