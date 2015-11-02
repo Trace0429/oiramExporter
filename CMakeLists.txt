@@ -16,6 +16,10 @@ foreach( OUTPUTCONFIG ${CMAKE_CONFIGURATION_TYPES} )
     set( CMAKE_ARCHIVE_OUTPUT_DIRECTORY_${OUTPUTCONFIG} ${PROJECT_BINARY_DIR}/lib )
 endforeach( OUTPUTCONFIG CMAKE_CONFIGURATION_TYPES )
 
+# TODO: switch max sdk
+set(MAX_INC dependencies/MaxSDK/2014/include)
+set(MAX_LIB dependencies/MaxSDK/2014/lib/x64/Release)
+
 add_subdirectory(dependencies/FreeImage)
 
 add_subdirectory(OgreComponent)

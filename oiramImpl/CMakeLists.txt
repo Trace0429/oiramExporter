@@ -31,6 +31,8 @@ SOURCE_GROUP("src" FILES ${SRC})
 
 include_directories(../dependencies/OGRE/include)
 include_directories(../dependencies)
+include_directories($ENV{DXSDK_DIR}/include)
+include_directories(../${MAX_INC})
 
 add_definitions(-DNO_VIEW_EXTENDED)
 

@@ -35,7 +35,7 @@
 #include "fogatmos.h"
 
 #include <map>
-#include <hash_map>
+#include <unordered_map>
 #include <set>
 #ifndef _RC_INVOKED
 #include <string>
